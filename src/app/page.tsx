@@ -39,7 +39,7 @@ export default function Home() {
         <div className="availability"><span /> Building production enterprise software at ArcBest Technologies</div>
         <div className="hero-grid">
           <div>
-            <p className="kicker">Mid-level full-stack engineer · Fort Smith, Arkansas</p>
+            <p className="kicker">Mid-level full-stack engineer · Arkansas</p>
             <h1>I build software that makes work easier.</h1>
             <p className="hero-copy">
               I’m Weston, a mid-level full-stack engineer at ArcBest Technologies. I build
@@ -178,7 +178,7 @@ export default function Home() {
         <div className="contact-links"><a href="mailto:westongraham11@gmail.com">westongraham11@gmail.com ↗</a><a href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a><a href="https://www.linkedin.com/in/westongraham" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/westongraham" target="_blank" rel="noreferrer">GitHub ↗</a></div>
       </section>
 
-      <footer className="shell"><span>© {new Date().getFullYear()} Weston Graham</span><span>Based in Fort Smith, Arkansas.</span></footer>
+      <footer className="shell"><span>© {new Date().getFullYear()} Weston Graham</span><span>Based in Arkansas.</span></footer>
     </main>
   );
 }
