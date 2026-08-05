@@ -1,44 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+import { JsonLd } from "@/components/json-ld";
+import { caseStudies } from "@/data/case-studies";
+import { absoluteUrl, metadataFor, staticSeoRoutes } from "@/data/seo";
 
-const projects = [
-  {
-    number: "01",
-    title: "Dance Studio Costume Manager",
-    type: "Product design · Full-stack development",
-    description:
-      "A web app for recording dancer measurements and converting them into vendor-specific costume sizes.",
-    tags: ["React", "Supabase", "Tailwind CSS"],
-    href: "/projects/dance-studio-costume-manager",
-    tone: "apricot",
-    image: "/images/DSCMPoster2.jpg",
-    imageAlt: "Dance Studio Costume Manager showing dancer measurements and vendor costume sizes",
-  },
-  {
-    number: "02",
-    title: "AutoFarm",
-    type: "Computer vision · Capstone project",
-    description:
-      "A computer vision project that uses plant images to identify health and growth-stage information.",
-    tags: ["React", "Flask", "Python"],
-    href: "/projects/autofarm",
-    tone: "sage",
-    image: "/images/autoFarmPoster.png",
-    imageAlt: "AutoFarm senior capstone research poster",
-  },
-  {
-    number: "03",
-    title: "Attitudes Performing Arts",
-    type: "Information architecture · Website redesign",
-    description:
-      "A website redesign that makes class schedules, enrollment information, and contact details easier to find.",
-    tags: ["UX", "Responsive UI", "Content strategy"],
-    href: "/projects/attitudes-performing-arts",
-    tone: "blue",
-    image: "/images/AttitudesPoster.jpg",
-    imageAlt: "Attitudes Performing Arts website redesign homepage",
-  },
-];
+const projectTones = ["apricot", "sage", "blue"];
 
 const notes = [
   ["Engineering", "The hidden cost of ‘we’ll just track it in a spreadsheet’"],
@@ -46,9 +13,12 @@ const notes = [
   ["In progress", "Designing automation people actually trust"],
 ];
 
+export const metadata: Metadata = metadataFor(staticSeoRoutes[0]);
+
 export default function Home() {
   return (
     <main>
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "ProfilePage", mainEntity: { "@type": "Person", name: "Weston Graham", url: absoluteUrl("/"), jobTitle: "Full-stack engineer", sameAs: ["https://www.linkedin.com/in/westongraham", "https://github.com/westongraham"] } }} />
       <header className="site-header">
         <Link className="wordmark" href="/" aria-label="Weston Graham home">
           Weston<span>Graham</span>
@@ -60,39 +30,60 @@ export default function Home() {
           <Link href="/about">About</Link>
           <a href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
         </nav>
-        <a className="resume-link" href="mailto:westongraham11@gmail.com?subject=Resume%20request">
+        <a className="resume-link" href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry%20for%20Weston%20Graham">
           Get in touch <span aria-hidden="true">↗</span>
         </a>
       </header>
 
       <section className="hero shell">
-        <div className="availability"><span /> Building enterprise software at ArcBest Technologies</div>
+        <div className="availability"><span /> Building production enterprise software at ArcBest Technologies</div>
         <div className="hero-grid">
           <div>
-            <p className="kicker">Full-stack engineer · Fort Smith, Arkansas</p>
+            <p className="kicker">Mid-level full-stack engineer · Fort Smith, Arkansas</p>
             <h1>I build software that makes work easier.</h1>
             <p className="hero-copy">
-              I’m Weston, a full-stack engineer at ArcBest Technologies. I build and
-              support applications, integrations, and internal tools with .NET, Vue,
-              SQL, Salesforce, and ServiceNow.
+              I’m Weston, a mid-level full-stack engineer at ArcBest Technologies. I build
+              and maintain production applications, APIs, integrations, and internal tools
+              with .NET, Vue, SQL, Salesforce, and ServiceNow.
             </p>
             <div className="hero-actions">
-              <Link className="button button-dark" href="#work">View selected work <span>↓</span></Link>
+              <a className="button button-dark" href="#work">View selected work <span>↓</span></a>
               <a className="button button-light" href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer">View resume <span>↗</span></a>
             </div>
           </div>
-          <aside className="identity-card" aria-label="Current role">
-            <div className="portrait" role="img" aria-label="Weston Graham portrait placeholder">WG</div>
+          <aside className="identity-card" aria-labelledby="current-role-title">
             <div className="identity-copy">
               <p className="eyebrow">Currently</p>
-              <p>Product Support Specialist II<br />Software Engineering Focus</p>
-              <p className="muted">ArcBest Technologies · Since 2022</p>
+              <h2 id="current-role-title">Product Support Specialist II</h2>
+              <p>Software engineering focus</p>
+              <p className="muted">ArcBest Technologies · 2025 — present</p>
+              <p className="muted">With ArcBest since 2022</p>
             </div>
           </aside>
         </div>
+        <section className="proof" aria-labelledby="proof-title">
+          <div className="proof-intro">
+            <p className="section-label">Production work</p>
+            <h2 id="proof-title">Enterprise systems, from workflow to integration.</h2>
+          </div>
+          <div className="proof-list">
+            <article>
+              <h3>Production software</h3>
+              <p>Builds and maintains business applications used in an enterprise environment.</p>
+            </article>
+            <article>
+              <h3>Connected systems</h3>
+              <p>Works across APIs, SQL, Salesforce, and ServiceNow integrations.</p>
+            </article>
+            <article>
+              <h3>Target roles</h3>
+              <p>Mid-level full-stack engineer, integration engineer, or internal tools engineer.</p>
+            </article>
+          </div>
+        </section>
         <div className="hero-rule" />
-        <div className="hero-footnote">
-          <span>Enterprise software</span><span>Integrations</span><span>Internal tools</span><span>AI workflows</span>
+        <div className="hero-footnote" aria-label="Core technologies and work areas">
+          <span>.NET</span><span>Vue</span><span>SQL</span><span>Salesforce</span><span>ServiceNow</span><span>APIs</span>
         </div>
       </section>
 
@@ -117,22 +108,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" className="work shell">
-        <div className="section-heading">
-          <div><p className="section-label">Selected work</p><h2>A few examples of what I&apos;ve built.</h2></div>
-          <Link href="/projects" className="text-link">All projects <span>→</span></Link>
-        </div>
-        <div className="project-list">
-          {projects.map((project) => (
-            <Link href={project.href} className={`project ${project.tone}`} key={project.title}>
-              <div className="project-art"><span>{project.number}</span><Image src={project.image} alt={project.imageAlt} width={900} height={500} sizes="(max-width: 760px) 100vw, 230px" /></div>
-              <div className="project-content">
-                <p className="project-type">{project.type}</p><h3>{project.title}</h3><p>{project.description}</p>
-                <div className="tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-              </div>
-              <span className="project-arrow" aria-hidden="true">↗</span>
-            </Link>
-          ))}
+      <section className="experience-band">
+        <div className="shell experience-layout">
+          <div><p className="section-label">Experience</p><h2>What I&apos;ve been working on.</h2></div>
+          <div className="timeline">
+            <article><p className="timeline-date">2025 — present</p><h3>Product Support Specialist II · ArcBest Technologies</h3><p>Building and maintaining production applications, APIs, and enterprise platform integrations.</p></article>
+            <article><p className="timeline-date">2023 — 2025</p><h3>Product Support Specialist I</h3><p>Developed full-stack business applications and led Agile ceremonies as Scrum Master.</p></article>
+            <article><p className="timeline-date">2022 — 2023</p><h3>Information Systems / Info Center</h3><p>Created ServiceNow applications and workflow automation for logistics operations.</p></article>
+          </div>
+          <Link href="/experience" className="text-link">View full timeline <span>→</span></Link>
         </div>
       </section>
 
@@ -150,15 +134,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="experience-band">
-        <div className="shell experience-layout">
-          <div><p className="section-label">Experience</p><h2>What I&apos;ve been working on.</h2></div>
-          <div className="timeline">
-            <article><p className="timeline-date">2025 — now</p><h3>Product Support Specialist II</h3><p>Building and maintaining production applications, APIs, and enterprise platform integrations.</p></article>
-            <article><p className="timeline-date">2023 — 2025</p><h3>Product Support Specialist I</h3><p>Developed full-stack business applications and led Agile ceremonies as Scrum Master.</p></article>
-            <article><p className="timeline-date">2022 — 2023</p><h3>Information Systems / Info Center</h3><p>Created ServiceNow applications and workflow automation for logistics operations.</p></article>
-          </div>
-          <Link href="/experience" className="text-link">View full timeline <span>→</span></Link>
+      <section id="work" className="work shell">
+        <div className="section-heading">
+          <div><p className="section-label">Selected work</p><h2>A few examples of what I&apos;ve built.</h2></div>
+          <Link href="/projects" className="text-link">All projects <span>→</span></Link>
+        </div>
+        <div className="project-list">
+          {caseStudies.map((project, index) => (
+            <Link href={`/projects/${project.slug}`} className={`project ${projectTones[index % projectTones.length]}`} key={project.slug}>
+              {project.heroImage && <div className="project-art"><span>{String(index + 1).padStart(2, "0")}</span><Image src={project.heroImage.src} alt={project.heroImage.alt} width={900} height={500} sizes="(max-width: 760px) 100vw, 230px" /></div>}
+              <div className="project-content">
+                <p className="project-type">{project.eyebrow}</p><h3>{project.title}</h3><p>{project.cardDescription}</p>
+                {project.technologyStack?.length && <div className="tags">{project.technologyStack.map((tag) => <span key={tag}>{tag}</span>)}</div>}
+              </div>
+              <span className="project-arrow" aria-hidden="true">↗</span>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -183,7 +174,7 @@ export default function Home() {
       <section className="contact shell">
         <p className="section-label">Contact</p>
         <h2>Let&apos;s talk.</h2>
-        <p>I&apos;m interested in full-stack engineering work, internal tools, integrations, and software that helps people do their jobs more easily.</p>
+        <p>I&apos;m interested in mid-level full-stack, integration, and internal tools engineering roles—especially work that helps people do their jobs more easily.</p>
         <div className="contact-links"><a href="mailto:westongraham11@gmail.com">westongraham11@gmail.com ↗</a><a href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a><a href="https://www.linkedin.com/in/westongraham" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/westongraham" target="_blank" rel="noreferrer">GitHub ↗</a></div>
       </section>
 

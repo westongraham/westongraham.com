@@ -4,33 +4,45 @@ import { useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
 
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
+function getPreferredTheme(): Theme {
   const saved = window.localStorage.getItem("theme");
   if (saved === "light" || saved === "dark") return saved;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setTheme] = useState<Theme>("light");
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem("theme", theme);
-  }, [theme]);
+    const preferredTheme = getPreferredTheme();
+    document.documentElement.dataset.theme = preferredTheme;
+    const frame = window.requestAnimationFrame(() => {
+      setTheme(preferredTheme);
+      setIsReady(true);
+    });
 
-  const nextTheme = theme === "light" ? "dark" : "light";
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  const nextTheme: Theme = theme === "light" ? "dark" : "light";
+
+  function toggleTheme() {
+    document.documentElement.dataset.theme = nextTheme;
+    window.localStorage.setItem("theme", nextTheme);
+    setTheme(nextTheme);
+  }
 
   return (
     <button
       className="theme-toggle"
       type="button"
-      onClick={() => setTheme(nextTheme)}
-      aria-label={`Switch to ${nextTheme} mode`}
-      title={`Switch to ${nextTheme} mode`}
+      onClick={toggleTheme}
+      aria-label={isReady ? `Switch to ${nextTheme} mode` : "Toggle color theme"}
+      title={isReady ? `Switch to ${nextTheme} mode` : "Toggle color theme"}
     >
-      <span aria-hidden="true">{theme === "light" ? "◐" : "☼"}</span>
-      <span>{theme === "light" ? "Dark" : "Light"}</span>
+      <span aria-hidden="true">{isReady && theme === "dark" ? "☼" : "◐"}</span>
+      <span>{isReady ? (theme === "light" ? "Dark" : "Light") : "Theme"}</span>
     </button>
   );
 }
