@@ -18,6 +18,10 @@ export const staticSeoRoutes = [
   { path: "/projects", title: "Projects | Weston Graham", description: "Selected software, product design, and research projects by full-stack engineer Weston Graham.", changeFrequency: "monthly", priority: 0.9 },
   { path: "/writing", title: "Writing | Weston Graham", description: "Notes from Weston Graham on software engineering, systems, AI, career growth, and side projects.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/writing/when-a-spreadsheet-stops-being-enough", title: "When a spreadsheet stops being enough | Weston Graham", description: "A practical way to recognize when a repeated business process needs a better tool than a spreadsheet.", changeFrequency: "yearly", priority: 0.7 },
+  { path: "/notes", title: "Engineering Notes | Weston Graham", description: "Engineering notes, decisions, and public project learnings by Weston Graham.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/tools", title: "Developer Tools | Weston Graham", description: "Small browser-based utilities for everyday engineering work.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/build", title: "Build With Me | Weston Graham", description: "An open engineering notebook for goals, decisions, and next steps.", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/journal", title: "Engineering Journal | Weston Graham", description: "Short engineering observations and lessons from Weston Graham.", changeFrequency: "monthly", priority: 0.7 },
 ] as const satisfies readonly SeoRoute[];
 
 export function absoluteUrl(path: string) {

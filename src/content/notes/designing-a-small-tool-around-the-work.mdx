@@ -1,0 +1,31 @@
+export const metadata = {
+  title: "Designing a small tool around the work",
+  description: "A public, high-level look at turning a recurring costume-sizing task into a focused web tool.",
+  published: "2026-08-06",
+  tags: ["Engineering", "Product thinking", "Side projects"],
+  technologies: ["React", "Supabase", "Tailwind CSS"],
+  project: "Dance Studio Costume Manager",
+  draft: false,
+};
+
+import { danceStudioArchitecture } from "@/data/architecture";
+
+## Begin with the repeated task
+
+The Dance Studio Costume Manager started with a small but recurring problem: dancer measurements and vendor sizing references needed to be kept together when preparing an order. The useful first step was to keep the workflow focused, rather than build a broad studio-management platform.
+
+<Callout title="Scope choice">The goal was to make one recurring task easier to complete and review, not to replace every system a studio might use.</Callout>
+
+## A public view of the workflow
+
+This is a high-level diagram of the personal project. It describes the user-facing flow only; select a component to inspect its responsibility.
+
+<ArchitectureDiagram diagram={danceStudioArchitecture} />
+
+## Keep information close to the decision
+
+When measurements and size references live separately, the person preparing an order has to repeatedly switch context. Keeping the records and vendor-specific size references in the same workflow makes the next decision clearer.
+
+<CodeSnippet language="text" code={`Measurement → vendor size reference → order-ready size`} />
+
+The lesson is simple: a small tool earns its place when it reduces a specific kind of repeated effort without adding a new process people have to maintain.

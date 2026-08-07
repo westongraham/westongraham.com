@@ -1,14 +1,9 @@
+import { danceStudioArchitecture, type ArchitectureDiagramData } from "@/data/architecture";
+
 export type CaseStudyImage = {
   src: string;
   alt: string;
   caption?: string;
-};
-
-export type Diagram = {
-  title: string;
-  description: string;
-  nodes: string[];
-  connections: Array<[number, number]>;
 };
 
 export type CaseStudy = {
@@ -24,9 +19,9 @@ export type CaseStudy = {
   responsibilities?: string[];
   problem?: string;
   constraints?: string[];
-  architecture?: Diagram;
+  architecture?: ArchitectureDiagramData;
   technologyStack?: string[];
-  dataFlow?: Diagram;
+  dataFlow?: ArchitectureDiagramData;
   decisions?: Array<{ decision: string; rationale: string }>;
   alternatives?: Array<{ option: string; tradeoff: string }>;
   screenshots?: CaseStudyImage[];
@@ -58,6 +53,7 @@ export const caseStudies: CaseStudy[] = [
     results:
       "The tool keeps measurements organized and converts them into the right vendor sizes, giving the user one place to prepare an order.",
     technologyStack: ["React", "Supabase", "Tailwind CSS"],
+    architecture: danceStudioArchitecture,
     lessonsLearned:
       "A useful side project does not need a large audience. It needs to solve a problem clearly enough that someone can use it without extra instructions.",
   },

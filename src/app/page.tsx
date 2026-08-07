@@ -27,6 +27,8 @@ export default function Home() {
           <Link href="/projects">Projects</Link>
           <Link href="/experience">Experience</Link>
           <Link href="/writing">Writing</Link>
+          <Link href="/notes">Notes</Link>
+          <Link href="/tools">Tools</Link>
           <Link href="/about">About</Link>
           <a href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
         </nav>
