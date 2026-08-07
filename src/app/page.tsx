@@ -23,7 +23,7 @@ export default function Home() {
         <Link className="wordmark" href="/" aria-label="Weston Graham home">
           Weston<span>Graham</span>
         </Link>
-        <nav aria-label="Primary navigation">
+        <nav className="desktop-nav" aria-label="Primary navigation">
           <Link href="/projects">Projects</Link>
           <Link href="/experience">Experience</Link>
           <Link href="/writing">Writing</Link>
@@ -32,6 +32,22 @@ export default function Home() {
           <Link href="/about">About</Link>
           <a href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
         </nav>
+        <details className="mobile-nav">
+          <summary aria-label="Open navigation menu">
+            <span className="mobile-nav-icon" aria-hidden="true"><i /><i /><i /></span>
+            <span className="mobile-nav-label">Menu</span>
+          </summary>
+          <nav className="mobile-nav-panel" aria-label="Mobile navigation">
+            <Link href="/projects">Projects</Link>
+            <Link href="/experience">Experience</Link>
+            <Link href="/writing">Writing</Link>
+            <Link href="/notes">Notes</Link>
+            <Link href="/tools">Tools</Link>
+            <Link href="/about">About</Link>
+            <a href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer">Resume <span aria-hidden="true">↗</span></a>
+            <a className="mobile-nav-contact" href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry%20for%20Weston%20Graham">Get in touch <span aria-hidden="true">↗</span></a>
+          </nav>
+        </details>
         <a className="resume-link" href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry%20for%20Weston%20Graham">
           Get in touch <span aria-hidden="true">↗</span>
         </a>
