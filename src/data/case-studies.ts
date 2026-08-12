@@ -36,6 +36,56 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "groundwork-ai",
+    title: "Groundwork AI",
+    eyebrow: "AI education · Product development",
+    summary:
+      "A practical AI resource hub that helps individuals and small businesses move from curiosity to real-world adoption.",
+    cardDescription:
+      "A resource hub for practical AI guides, projects, and consulting.",
+    users: ["Individuals exploring AI", "Small-business teams"],
+    role: "Designed and built the product, content system, and responsive web experience.",
+    problem:
+      "AI advice is often either too theoretical or too technical for people who want to use it in their day-to-day work. Groundwork AI needed to make practical guidance, reusable prompts, and real project examples easy to discover and understand.",
+    responsibilities: [
+      "Defined the product structure and content strategy.",
+      "Built reusable project and resource collections with dynamic detail pages.",
+      "Designed a responsive interface for browsing guides, prompts, services, and case studies.",
+      "Deployed and iterated on the product through Vercel.",
+    ],
+    results:
+      "The deployed site brings practical AI resources, project case studies, and consulting information into one clear experience that can grow as new content is published.",
+    technologyStack: ["Next.js", "React", "CSS Modules", "Vercel"],
+    decisions: [
+      {
+        decision: "Use structured content objects to power resource and project pages.",
+        rationale:
+          "A shared data model keeps new content consistent and makes the site easier to expand without duplicating page layouts.",
+      },
+      {
+        decision: "Lead with practical outcomes instead of AI terminology.",
+        rationale:
+          "The intended audience needs to understand what AI can help them accomplish before they need implementation details.",
+      },
+    ],
+    testing: [
+      "Reviewed responsive layouts across mobile and desktop breakpoints.",
+      "Validated navigation and dynamic routes for projects, resources, and services.",
+    ],
+    deployment:
+      "Deployed on Vercel with the Next.js application serving reusable project and resource routes.",
+    lessonsLearned:
+      "An AI-focused product earns trust through specificity. Showing practical examples and clearly explaining the problem each tool solves is more useful than relying on broad claims about AI.",
+    repository: {
+      label: "Private repository",
+      note: "Source code is private, but the deployed product is available to explore.",
+    },
+    demo: {
+      url: "https://groundwork-ai-beta.vercel.app",
+      label: "View live site",
+    },
+  },
+  {
     slug: "dance-studio-costume-manager",
     title: "Dance Studio Costume Manager",
     eyebrow: "Product design · Full-stack development",
