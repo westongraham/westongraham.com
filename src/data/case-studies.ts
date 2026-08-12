@@ -36,6 +36,61 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "groundwork-ai",
+    title: "Groundwork AI",
+    eyebrow: "AI education · Consulting · Implementation",
+    summary:
+      "A practical AI education and consulting platform that helps everyday people and small businesses understand, adopt, and implement AI.",
+    cardDescription:
+      "Practical AI education, examples, and hands-on implementation help.",
+    users: [
+      "Everyday people who want to use AI in their daily lives",
+      "Small businesses exploring AI adoption and automation",
+    ],
+    role:
+      "Designed and built the platform, its content system, and the consulting experience.",
+    problem:
+      "AI can save time, improve decision-making, and automate repetitive work, but many people struggle to translate its potential into something useful. Existing resources are often too technical, too theoretical, or disconnected from the everyday problems people and small businesses actually face.",
+    responsibilities: [
+      "Defined the product strategy for both everyday users and small-business teams.",
+      "Created approachable guides, reusable prompts, and real-world examples of personal and business use cases.",
+      "Built reusable project and resource collections with dynamic detail pages.",
+      "Designed a responsive experience for education, consulting, and implementation services.",
+      "Deployed and iterated on the platform through Vercel.",
+    ],
+    results:
+      "Groundwork AI gives people an approachable starting point for AI adoption—whether they want to learn through practical examples, improve their everyday routines, or get hands-on help implementing AI within their business.",
+    technologyStack: ["Next.js", "React", "CSS Modules", "Vercel"],
+    decisions: [
+      {
+        decision: "Organize the platform around real-life outcomes instead of AI terminology.",
+        rationale:
+          "People are more likely to understand AI when examples connect directly to problems in their work or daily life.",
+      },
+      {
+        decision: "Combine self-guided education with consulting and implementation services.",
+        rationale:
+          "Some users want resources they can explore independently, while others need personalized guidance or hands-on help putting AI solutions into practice.",
+      },
+    ],
+    testing: [
+      "Reviewed responsive layouts across mobile and desktop breakpoints.",
+      "Validated navigation and dynamic routes for projects, resources, and services.",
+    ],
+    deployment:
+      "Deployed on Vercel with reusable routes for project examples, educational resources, and consulting services.",
+    lessonsLearned:
+      "Successful AI adoption starts with the person’s problem—not the technology. Specific, relatable examples make AI easier to understand and give people the confidence to begin using it.",
+    repository: {
+      label: "Private repository",
+      note: "Source code is private, but the deployed product is available to explore.",
+    },
+    demo: {
+      url: "https://groundwork-ai-beta.vercel.app",
+      label: "View live site",
+    },
+  },
+  {
     slug: "dance-studio-costume-manager",
     title: "Dance Studio Costume Manager",
     eyebrow: "Product design · Full-stack development",
