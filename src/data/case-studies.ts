@@ -38,34 +38,39 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "groundwork-ai",
     title: "Groundwork AI",
-    eyebrow: "AI education · Product development",
+    eyebrow: "AI education · Consulting · Implementation",
     summary:
-      "A practical AI resource hub that helps individuals and small businesses move from curiosity to real-world adoption.",
+      "A practical AI education and consulting platform that helps everyday people and small businesses understand, adopt, and implement AI.",
     cardDescription:
-      "A resource hub for practical AI guides, projects, and consulting.",
-    users: ["Individuals exploring AI", "Small-business teams"],
-    role: "Designed and built the product, content system, and responsive web experience.",
+      "Practical AI education, examples, and hands-on implementation help.",
+    users: [
+      "Everyday people who want to use AI in their daily lives",
+      "Small businesses exploring AI adoption and automation",
+    ],
+    role:
+      "Designed and built the platform, its content system, and the consulting experience.",
     problem:
-      "AI advice is often either too theoretical or too technical for people who want to use it in their day-to-day work. Groundwork AI needed to make practical guidance, reusable prompts, and real project examples easy to discover and understand.",
+      "AI can save time, improve decision-making, and automate repetitive work, but many people struggle to translate its potential into something useful. Existing resources are often too technical, too theoretical, or disconnected from the everyday problems people and small businesses actually face.",
     responsibilities: [
-      "Defined the product structure and content strategy.",
+      "Defined the product strategy for both everyday users and small-business teams.",
+      "Created approachable guides, reusable prompts, and real-world examples of personal and business use cases.",
       "Built reusable project and resource collections with dynamic detail pages.",
-      "Designed a responsive interface for browsing guides, prompts, services, and case studies.",
-      "Deployed and iterated on the product through Vercel.",
+      "Designed a responsive experience for education, consulting, and implementation services.",
+      "Deployed and iterated on the platform through Vercel.",
     ],
     results:
-      "The deployed site brings practical AI resources, project case studies, and consulting information into one clear experience that can grow as new content is published.",
+      "Groundwork AI gives people an approachable starting point for AI adoption—whether they want to learn through practical examples, improve their everyday routines, or get hands-on help implementing AI within their business.",
     technologyStack: ["Next.js", "React", "CSS Modules", "Vercel"],
     decisions: [
       {
-        decision: "Use structured content objects to power resource and project pages.",
+        decision: "Organize the platform around real-life outcomes instead of AI terminology.",
         rationale:
-          "A shared data model keeps new content consistent and makes the site easier to expand without duplicating page layouts.",
+          "People are more likely to understand AI when examples connect directly to problems in their work or daily life.",
       },
       {
-        decision: "Lead with practical outcomes instead of AI terminology.",
+        decision: "Combine self-guided education with consulting and implementation services.",
         rationale:
-          "The intended audience needs to understand what AI can help them accomplish before they need implementation details.",
+          "Some users want resources they can explore independently, while others need personalized guidance or hands-on help putting AI solutions into practice.",
       },
     ],
     testing: [
@@ -73,9 +78,9 @@ export const caseStudies: CaseStudy[] = [
       "Validated navigation and dynamic routes for projects, resources, and services.",
     ],
     deployment:
-      "Deployed on Vercel with the Next.js application serving reusable project and resource routes.",
+      "Deployed on Vercel with reusable routes for project examples, educational resources, and consulting services.",
     lessonsLearned:
-      "An AI-focused product earns trust through specificity. Showing practical examples and clearly explaining the problem each tool solves is more useful than relying on broad claims about AI.",
+      "Successful AI adoption starts with the person’s problem—not the technology. Specific, relatable examples make AI easier to understand and give people the confidence to begin using it.",
     repository: {
       label: "Private repository",
       note: "Source code is private, but the deployed product is available to explore.",
