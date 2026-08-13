@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { List, X } from "@phosphor-icons/react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const links = [
@@ -16,11 +16,34 @@ const links = [
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        requestAnimationFrame(() => menuButtonRef.current?.focus());
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    mobileMenuRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [open]);
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${open ? "menu-is-open" : ""}`}>
       <div className="site-header-inner">
-        <Link className="wordmark" href="/" aria-label="Weston Graham home">
+        <Link className="wordmark" href="/" aria-label="Weston Graham home" onClick={() => setOpen(false)}>
           Weston<span>Graham</span>
         </Link>
         <nav className="site-nav" aria-label="Primary navigation">
@@ -35,9 +58,12 @@ export function SiteHeader() {
           <ThemeToggle />
           <a className="contact-pill" href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry">Let&apos;s talk</a>
           <button
+            ref={menuButtonRef}
             className="menu-button"
             type="button"
             aria-label={open ? "Close navigation" : "Open navigation"}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((value) => !value)}
           >
             {open ? <X size={20} /> : <List size={20} />}
@@ -45,10 +71,10 @@ export function SiteHeader() {
         </div>
       </div>
       {open ? (
-        <nav className="mobile-menu" aria-label="Mobile navigation">
-          {links.map((link) => <Link href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>)}
-          <a href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer">Resume</a>
-          <a href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry">Let&apos;s talk</a>
+        <nav ref={mobileMenuRef} className="mobile-menu" id="mobile-navigation" aria-label="Mobile navigation">
+          {links.map((link) => <Link aria-current={pathname.startsWith(link.href) ? "page" : undefined} href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>)}
+          <a href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>Resume</a>
+          <a href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry" onClick={() => setOpen(false)}>Let&apos;s talk</a>
         </nav>
       ) : null}
     </header>

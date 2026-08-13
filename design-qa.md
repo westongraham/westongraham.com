@@ -46,10 +46,15 @@ The experience capture and option 2 were opened together and compared. The imple
 - P1: experience presentation did not match the selected rising timeline. Fixed with a chronological orbital path from 2021 at lower left to the current role at upper right, plus a reusable role detail card.
 - P2: component surfaces felt improvised and route-specific. Fixed with HeroUI v3 Card, Chip, and Button surfaces, shared primitives, Tailwind v4 styling, and Phosphor icons.
 - P2: initial motion could leave layers invisible in the cloud browser. Fixed by removing opacity-gated initial states and limiting animation to transitions that preserve readable fallback content.
+- P1 mobile: the workflow outcome could overlap connected-system cards. Fixed by switching the mobile canvas to document flow and giving every stage its own bounded row.
+- P1 mobile: the featured automation diagram became a clipped horizontal strip. Fixed with a vertical, scan-friendly request sequence and down-flow connectors.
+- P1 mobile: the experience path collapsed into unrelated grid items. Fixed with a continuous vertical trajectory, orbital markers, generous touch targets, and a clear selected state.
+- P2 mobile: navigation, card spacing, long headings, project media, architecture details, tools, articles, and case-study sections retained desktop assumptions. Fixed with dedicated 680 px and 380 px compositions instead of simple column collapse.
+- P2 mobile accessibility: the menu did not lock background scrolling, return focus on Escape, or expose its expanded state. Fixed with body scroll management, first-link focus, Escape handling, `aria-expanded`, `aria-controls`, and `aria-current`.
 - Post-fix evidence: `qa-home-desktop.jpg` and `qa-experience-desktop.jpg` show the corrected light-theme hierarchy and timeline; route sweep and theme interaction were rechecked after the fixes.
 
 ## Follow-up polish
 
-- P3 test gap: the cloud browser exposed one desktop viewport. Mobile and tablet behavior is implemented through explicit 900 px and 680 px breakpoints, but a second browser-rendered mobile capture was not available in this QA surface.
+- P3 test gap: the cloud-browser surface exposes one desktop viewport, so the mobile correction was validated through source-level breakpoint review, lint, TypeScript, and the production build. The PR's Vercel preview remains the final device-level visual check.
 
 final result: passed
