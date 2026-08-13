@@ -1,7 +1,7 @@
 import { spawn } from "node:child_process";
 
 const args = process.argv.slice(2);
-const translated = [];
+const translated = ["--webpack"];
 
 for (let index = 0; index < args.length; index += 1) {
   if (args[index] === "--host") {
