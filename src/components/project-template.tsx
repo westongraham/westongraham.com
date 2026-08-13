@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import type { CaseStudy } from "@/data/case-studies";
-import { ArchitectureDiagram } from "@/components/architecture-diagram";
+import { ArchitectureDiagramLoader } from "@/components/architecture-diagram-loader";
 import { TechStack } from "@/components/engineering-primitives";
 
 export function ProjectSection({ title, children }: { title: string; children: ReactNode }) { return <section className="case-section"><h2 className="section-label case-section-title">{title}</h2>{children}</section>; }
@@ -13,7 +13,8 @@ export function ProjectTemplate({ study }: { study: CaseStudy }) {
     {study.role && <ProjectSection title="Weston’s role"><p>{study.role}</p></ProjectSection>}
     {study.responsibilities?.length && <ProjectSection title="Responsibilities"><List items={study.responsibilities} /></ProjectSection>}
     {study.constraints?.length && <ProjectSection title="Constraints"><List items={study.constraints} /></ProjectSection>}
-    {study.architecture && <ProjectSection title="Architecture"><ArchitectureDiagram diagram={study.architecture} /></ProjectSection>}
+    {study.architecture && <ProjectSection title="Architecture"><ArchitectureDiagramLoader diagram={study.architecture} /></ProjectSection>}
+    {study.dataFlow && <ProjectSection title="Data flow"><ArchitectureDiagramLoader diagram={study.dataFlow} /></ProjectSection>}
     {study.decisions?.length && <ProjectSection title="Key engineering decisions"><DecisionList items={study.decisions.map(({ decision, rationale }) => ({ title: decision, body: rationale }))} /></ProjectSection>}
     {study.alternatives?.length && <ProjectSection title="Trade-offs considered"><DecisionList items={study.alternatives.map(({ option, tradeoff }) => ({ title: option, body: tradeoff }))} /></ProjectSection>}
     {study.screenshots?.length && <ProjectSection title="Screenshots"><div className="case-screenshots">{study.screenshots.map((image) => <figure key={image.src}><Image src={image.src} alt={image.alt} width={1200} height={760} sizes="(max-width: 760px) calc(100vw - 64px), 550px" />{image.caption && <figcaption>{image.caption}</figcaption>}</figure>)}</div></ProjectSection>}
