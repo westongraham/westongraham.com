@@ -1,48 +1,10 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
-type Theme = "light" | "dark";
-
-function getPreferredTheme(): Theme {
-  const saved = window.localStorage.getItem("theme");
-  if (saved === "light" || saved === "dark") return saved;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
+import { Moon, Sun } from "@phosphor-icons/react/dist/ssr";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("light");
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    const preferredTheme = getPreferredTheme();
-    document.documentElement.dataset.theme = preferredTheme;
-    const frame = window.requestAnimationFrame(() => {
-      setTheme(preferredTheme);
-      setIsReady(true);
-    });
-
-    return () => window.cancelAnimationFrame(frame);
-  }, []);
-
-  const nextTheme: Theme = theme === "light" ? "dark" : "light";
-
-  function toggleTheme() {
-    document.documentElement.dataset.theme = nextTheme;
-    window.localStorage.setItem("theme", nextTheme);
-    setTheme(nextTheme);
-  }
-
   return (
-    <button
-      className="theme-toggle"
-      type="button"
-      onClick={toggleTheme}
-      aria-label={isReady ? `Switch to ${nextTheme} mode` : "Toggle color theme"}
-      title={isReady ? `Switch to ${nextTheme} mode` : "Toggle color theme"}
-    >
-      <span aria-hidden="true">{isReady && theme === "dark" ? "☼" : "◐"}</span>
-      <span>{isReady ? (theme === "light" ? "Dark" : "Light") : "Theme"}</span>
+    <button className="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" title="Toggle color theme">
+      <span className="theme-icon-light" aria-hidden="true"><Moon size={19} weight="regular" /></span>
+      <span className="theme-icon-dark" aria-hidden="true"><Sun size={19} weight="regular" /></span>
     </button>
   );
 }

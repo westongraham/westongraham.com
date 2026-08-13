@@ -7,7 +7,7 @@ export const metadata: Metadata = metadataFor(staticSeoRoutes[5]);
 
 export default function SpreadsheetNote() {
   return (
-    <main className="shell editorial-page article-page">
+    <main className="page-shell editorial-page article-page">
       <JsonLd data={{ "@context": "https://schema.org", "@type": "Article", headline: "When a spreadsheet stops being enough", description: "A practical way to recognize when a repeated business process needs a better tool than a spreadsheet.", mainEntityOfPage: absoluteUrl("/writing/when-a-spreadsheet-stops-being-enough"), author: { "@type": "Person", name: "Weston Graham", url: absoluteUrl("/") } }} />
       <Link className="back-link" href="/writing">← All notes</Link>
       <header className="article-header">
