@@ -332,7 +332,7 @@ figcaption { margin-top: 12px; color: var(--muted); font-size: .68rem; }
   .site-nav, .contact-pill { display: none; }
   .menu-button { display: inline-grid !important; }
   .site-header.menu-is-open { background: var(--bg); }
-  .mobile-menu { position: fixed; z-index: 49; top: 74px; right: 0; bottom: 0; left: 0; padding: 38px 24px max(32px, env(safe-area-inset-bottom)); background: var(--bg); display: flex; flex-direction: column; gap: 0; overflow-y: auto; }
+  .mobile-menu { position: fixed; z-index: 49; top: 74px; right: 0; bottom: 0; left: 0; min-height: calc(100dvh - 74px); padding: 38px 24px max(32px, env(safe-area-inset-bottom)); background: var(--bg); display: flex; flex-direction: column; gap: 0; overflow-y: auto; overscroll-behavior: contain; }
   .mobile-menu a { min-height: 58px; padding: 10px 4px; border-bottom: 1px solid var(--line); font-family: var(--display); font-size: clamp(1.65rem, 6vw, 2.15rem); display: flex; align-items: center; }
   .mobile-menu a[aria-current="page"] { color: var(--blue); }
   .mobile-menu a:nth-last-child(-n + 2) { font-family: var(--sans); font-size: .82rem; font-weight: 700; }
@@ -358,7 +358,7 @@ figcaption { margin-top: 12px; color: var(--muted); font-size: .68rem; }
   .page-shell, .home-trajectory-wrap, .site-footer { width: min(100% - 32px, 1180px); }
   .site-header-inner { width: calc(100% - 32px); min-height: 66px; }
   .theme-toggle, .menu-button { width: 44px !important; min-width: 44px !important; height: 44px !important; }
-  .mobile-menu { top: 66px; padding-inline: 16px; }
+  .mobile-menu { top: 66px; min-height: calc(100dvh - 66px); padding-inline: 16px; }
   .site-footer { grid-template-columns: 1fr; gap: 46px; padding-top: 72px; }
   .site-footer h2 { font-size: clamp(2.8rem, 13vw, 4rem); }
   .footer-links { gap: 8px; }

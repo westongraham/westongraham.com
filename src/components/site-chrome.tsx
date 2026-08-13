@@ -41,35 +41,37 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className={`site-header ${open ? "menu-is-open" : ""}`}>
-      <div className="site-header-inner">
-        <Link className="wordmark" href="/" aria-label="Weston Graham home" onClick={() => setOpen(false)}>
-          Weston<span>Graham</span>
-        </Link>
-        <nav className="site-nav" aria-label="Primary navigation">
-          {links.map((link) => (
-            <Link className={pathname.startsWith(link.href) ? "is-active" : ""} href={link.href} key={link.href}>
-              {link.label}
-            </Link>
-          ))}
-          <a href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer">Resume</a>
-        </nav>
-        <div className="site-actions">
-          <ThemeToggle />
-          <a className="contact-pill" href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry">Let&apos;s talk</a>
-          <button
-            ref={menuButtonRef}
-            className="menu-button"
-            type="button"
-            aria-label={open ? "Close navigation" : "Open navigation"}
-            aria-expanded={open}
-            aria-controls="mobile-navigation"
-            onClick={() => setOpen((value) => !value)}
-          >
-            {open ? <X size={20} /> : <List size={20} />}
-          </button>
+    <>
+      <header className={`site-header ${open ? "menu-is-open" : ""}`}>
+        <div className="site-header-inner">
+          <Link className="wordmark" href="/" aria-label="Weston Graham home" onClick={() => setOpen(false)}>
+            Weston<span>Graham</span>
+          </Link>
+          <nav className="site-nav" aria-label="Primary navigation">
+            {links.map((link) => (
+              <Link className={pathname.startsWith(link.href) ? "is-active" : ""} href={link.href} key={link.href}>
+                {link.label}
+              </Link>
+            ))}
+            <a href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+          </nav>
+          <div className="site-actions">
+            <ThemeToggle />
+            <a className="contact-pill" href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry">Let&apos;s talk</a>
+            <button
+              ref={menuButtonRef}
+              className="menu-button"
+              type="button"
+              aria-label={open ? "Close navigation" : "Open navigation"}
+              aria-expanded={open}
+              aria-controls="mobile-navigation"
+              onClick={() => setOpen((value) => !value)}
+            >
+              {open ? <X size={20} /> : <List size={20} />}
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
       {open ? (
         <nav ref={mobileMenuRef} className="mobile-menu" id="mobile-navigation" aria-label="Mobile navigation">
           {links.map((link) => <Link aria-current={pathname.startsWith(link.href) ? "page" : undefined} href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>)}
@@ -77,7 +79,7 @@ export function SiteHeader() {
           <a href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry" onClick={() => setOpen(false)}>Let&apos;s talk</a>
         </nav>
       ) : null}
-    </header>
+    </>
   );
 }
 
