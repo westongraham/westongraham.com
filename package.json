@@ -16,6 +16,7 @@
     "@next/mdx": "^16.3.0",
     "@phosphor-icons/react": "^2.1.10",
     "@types/mdx": "^2.0.14",
+    "@xyflow/react": "^12.11.3",
     "framer-motion": "^13.1.0",
     "next": "16.3.0",
     "react": "19.2.8",

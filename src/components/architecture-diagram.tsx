@@ -1,43 +1,178 @@
 "use client";
 
-import { useEffect, useId, useMemo, useState } from "react";
-import type { ArchitectureDiagramData } from "@/data/architecture";
+import {
+  Background,
+  BackgroundVariant,
+  Controls,
+  Handle,
+  MarkerType,
+  MiniMap,
+  Panel,
+  Position,
+  ReactFlow,
+  useNodesState,
+  type Edge,
+  type Node,
+  type NodeProps,
+} from "@xyflow/react";
+import { Browser, Code, Database, GearSix, PlugsConnected } from "@phosphor-icons/react";
+import { useEffect, useMemo, useState } from "react";
+import type { ArchitectureDiagramData, ArchitectureNode } from "@/data/architecture";
 
 type Props = { diagram: ArchitectureDiagramData; className?: string };
+type FlowNodeData = ArchitectureNode & { compact: boolean; related: boolean };
+type FlowNode = Node<FlowNodeData, "architectureNode">;
 
-/** A dependency-free, keyboard-operable diagram for public architecture stories. */
+const nodeTypes = { architectureNode: ArchitectureFlowNode };
+const icons = { client: Browser, service: Code, data: Database, external: PlugsConnected, process: GearSix };
+
+function ArchitectureFlowNode({ data, selected }: NodeProps<FlowNode>) {
+  const Icon = icons[data.type];
+  const handlePosition = data.compact ? Position.Top : Position.Left;
+  const sourcePosition = data.compact ? Position.Bottom : Position.Right;
+
+  return (
+    <article className={`architecture-flow-node type-${data.type} ${data.related ? "is-related" : ""} ${selected ? "is-selected" : ""}`}>
+      <Handle type="target" position={handlePosition} isConnectable={false} />
+      <div className="architecture-node-kicker">
+        <span><Icon aria-hidden="true" size={16} weight="duotone" /></span>
+        {data.type}
+      </div>
+      <h4>{data.label}</h4>
+      {data.technology && <p>{data.technology}</p>}
+      <span className="architecture-node-action">Select to inspect</span>
+      <Handle type="source" position={sourcePosition} isConnectable={false} />
+    </article>
+  );
+}
+
+function createNodes(diagram: ArchitectureDiagramData, compact: boolean): FlowNode[] {
+  return diagram.nodes.map((node, index) => ({
+    id: node.id,
+    type: "architectureNode",
+    position: compact
+      ? { x: 30, y: 34 + index * 196 }
+      : { x: 44 + index * 292, y: 126 + (index % 2) * 76 },
+    data: { ...node, compact, related: false },
+    ariaLabel: `${node.label}, ${node.type}. Select to inspect this component.`,
+  }));
+}
+
+/** Interactive, responsive public system map powered by React Flow. */
 export function ArchitectureDiagram({ diagram, className = "" }: Props) {
   const [selectedId, setSelectedId] = useState(diagram.nodes[0]?.id);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [compact, setCompact] = useState(false);
-  const selected = diagram.nodes.find((node) => node.id === selectedId) ?? diagram.nodes[0];
+  const [nodes, setNodes, onNodesChange] = useNodesState<FlowNode>(createNodes(diagram, false));
   const activeId = hoveredId ?? selectedId;
-  const related = useMemo(() => new Set([activeId, ...diagram.edges.filter((edge) => edge.from === activeId || edge.to === activeId).flatMap((edge) => [edge.from, edge.to])]), [activeId, diagram.edges]);
-  const markerId = useId();
+  const selected = diagram.nodes.find((node) => node.id === selectedId) ?? diagram.nodes[0];
+  const related = useMemo(
+    () => new Set([
+      activeId,
+      ...diagram.edges
+        .filter((edge) => edge.from === activeId || edge.to === activeId)
+        .flatMap((edge) => [edge.from, edge.to]),
+    ]),
+    [activeId, diagram.edges],
+  );
+  const edges = useMemo<Edge[]>(
+    () => diagram.edges.map((edge, index) => {
+      const isRelated = related.has(edge.from) && related.has(edge.to);
+      return {
+        id: `${edge.from}-${edge.to}-${index}`,
+        source: edge.from,
+        target: edge.to,
+        label: edge.label,
+        type: "smoothstep",
+        animated: isRelated,
+        selectable: false,
+        focusable: true,
+        className: isRelated ? "is-related" : "",
+        markerEnd: { type: MarkerType.ArrowClosed, width: 18, height: 18 },
+      };
+    }),
+    [diagram.edges, related],
+  );
+
   useEffect(() => {
-    const media = window.matchMedia("(max-width: 620px)");
+    const media = window.matchMedia("(max-width: 680px)");
     const update = () => setCompact(media.matches);
-    update(); media.addEventListener("change", update);
+    update();
+    media.addEventListener("change", update);
     return () => media.removeEventListener("change", update);
   }, []);
-  const width = compact ? 420 : Math.max(760, diagram.nodes.length * 250);
-  const nodeWidth = compact ? 330 : 176;
-  const nodeHeight = 94;
-  const height = compact ? diagram.nodes.length * 154 + 70 : 280;
-  const positions = diagram.nodes.map((_, index) => compact ? { x: (width - nodeWidth) / 2, y: 58 + index * 154 } : { x: 42 + index * ((width - 84 - nodeWidth) / Math.max(diagram.nodes.length - 1, 1)), y: 94 });
 
-  return <figure className={`architecture-diagram ${className}`} aria-labelledby={`${diagram.id}-caption`}>
-    <header className="architecture-header"><div><p className="section-label">Interactive system map</p><h3>{diagram.title}</h3></div><p>Choose a component to inspect its role.</p></header>
-    <div className="architecture-canvas" role="group" aria-label={`${diagram.title}. Select a component to inspect it.`}>
-      <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={diagram.description}>
-        <defs><pattern id={`${markerId}-grid`} width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" /></pattern><marker id={markerId} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" /></marker></defs>
-        <rect className="architecture-grid" width={width} height={height} fill={`url(#${markerId}-grid)`} />
-        <text className="architecture-flow-label" x="42" y="42">REQUEST / DATA FLOW</text>
-        {diagram.edges.map((edge) => { const from = diagram.nodes.findIndex((node) => node.id === edge.from); const to = diagram.nodes.findIndex((node) => node.id === edge.to); const start = positions[from]; const end = positions[to]; const isRelated = related.has(edge.from) && related.has(edge.to); const path = compact ? `M ${start.x + nodeWidth / 2} ${start.y + nodeHeight} C ${start.x + nodeWidth / 2} ${start.y + nodeHeight + 18}, ${end.x + nodeWidth / 2} ${end.y - 18}, ${end.x + nodeWidth / 2} ${end.y}` : `M ${start.x + nodeWidth} ${start.y + 47} C ${start.x + nodeWidth + 28} ${start.y + 47}, ${end.x - 28} ${end.y + 47}, ${end.x} ${end.y + 47}`; const labelX = compact ? start.x + nodeWidth / 2 : (start.x + nodeWidth + end.x) / 2; const labelY = compact ? start.y + nodeHeight + 24 : start.y + 28; return <g key={`${edge.from}-${edge.to}`} className={`architecture-edge ${isRelated ? "is-related" : ""}`}><path d={path} markerEnd={`url(#${markerId})`} /><text x={labelX} y={labelY}>{edge.label}</text></g>; })}
-        {diagram.nodes.map((node, index) => { const active = related.has(node.id); const selectedNode = selectedId === node.id; const position = positions[index]; return <g key={node.id} className={`architecture-node ${active ? "is-related" : ""} ${selectedNode ? "is-selected" : ""}`} tabIndex={0} role="button" aria-label={`Inspect ${node.label}`} aria-pressed={selectedNode} onClick={() => setSelectedId(node.id)} onFocus={() => setHoveredId(node.id)} onBlur={() => setHoveredId(null)} onMouseEnter={() => setHoveredId(node.id)} onMouseLeave={() => setHoveredId(null)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setSelectedId(node.id); } }}><rect className="architecture-node-shadow" x={position.x + 5} y={position.y + 6} width={nodeWidth} height={nodeHeight} rx="10" /><rect x={position.x} y={position.y} width={nodeWidth} height={nodeHeight} rx="10" /><circle cx={position.x + 24} cy={position.y + 24} r="10" /><text x={position.x + 43} y={position.y + 28} className="architecture-node-type">{node.type}</text><text x={position.x + 18} y={position.y + 59} className="architecture-node-label">{node.label}</text><text x={position.x + 18} y={position.y + 80} className="architecture-node-action">inspect ↗</text></g>; })}
-      </svg>
-    </div>
-    {selected && <aside className="architecture-detail" aria-live="polite"><div className="architecture-detail-marker"><span>{selected.type.slice(0, 1)}</span><p className="section-label">Selected component</p></div><div><h3>{selected.label}</h3><p>{selected.responsibility}</p>{selected.technology && <p className="architecture-tech"><strong>Built with</strong> {selected.technology}</p>}{selected.details && <p>{selected.details}</p>}{selected.relatedTechnologies?.length ? <div className="tags">{selected.relatedTechnologies.map((item) => <span key={item}>{item}</span>)}</div> : null}</div></aside>}
-    <figcaption id={`${diagram.id}-caption`}>{diagram.title}: {diagram.description}</figcaption>
-  </figure>;
+  useEffect(() => {
+    setNodes(createNodes(diagram, compact));
+  }, [compact, diagram, setNodes]);
+
+  useEffect(() => {
+    setNodes((current) => current.map((node) => ({
+      ...node,
+      data: { ...node.data, related: related.has(node.id) },
+    })));
+  }, [related, setNodes]);
+
+  return (
+    <figure className={`architecture-diagram ${className}`} aria-labelledby={`${diagram.id}-caption`}>
+      <header className="architecture-header">
+        <div>
+          <p className="section-label">Interactive system map</p>
+          <h3>{diagram.title}</h3>
+        </div>
+        <p>Explore the flow, then select a component for its role and implementation details.</p>
+      </header>
+
+      <div className="architecture-canvas" role="group" aria-label={`${diagram.title}. Interactive architecture diagram.`}>
+        <ReactFlow<FlowNode, Edge>
+          key={`${diagram.id}-${compact ? "compact" : "wide"}`}
+          nodes={nodes}
+          edges={edges}
+          nodeTypes={nodeTypes}
+          onNodesChange={onNodesChange}
+          onNodeClick={(_, node) => setSelectedId(node.id)}
+          onNodeMouseEnter={(_, node) => setHoveredId(node.id)}
+          onNodeMouseLeave={() => setHoveredId(null)}
+          fitView
+          fitViewOptions={{ padding: compact ? 0.16 : 0.25, maxZoom: 1.08 }}
+          minZoom={0.35}
+          maxZoom={1.6}
+          nodesConnectable={false}
+          edgesReconnectable={false}
+          deleteKeyCode={null}
+          zoomOnScroll={false}
+          preventScrolling={false}
+          panOnScroll={false}
+          attributionPosition="bottom-right"
+          aria-label={diagram.description}
+        >
+          <Background variant={BackgroundVariant.Dots} gap={24} size={1.2} />
+          <MiniMap ariaLabel="Architecture overview" pannable zoomable nodeColor="var(--blue)" maskColor="color-mix(in srgb, var(--surface) 78%, transparent)" />
+          <Controls showInteractive={false} aria-label="Architecture zoom controls" />
+          <Panel position="top-left" className="architecture-flow-hint">
+            Drag to explore <span aria-hidden="true">·</span> pinch or use controls to zoom
+          </Panel>
+        </ReactFlow>
+      </div>
+
+      {selected && (
+        <aside className="architecture-detail" aria-live="polite">
+          <div className="architecture-detail-marker">
+            <span>{selected.type.slice(0, 1)}</span>
+            <p className="section-label">Selected component</p>
+          </div>
+          <div>
+            <h3>{selected.label}</h3>
+            <p>{selected.responsibility}</p>
+            {selected.technology && <p className="architecture-tech"><strong>Built with</strong> {selected.technology}</p>}
+            {selected.details && <p>{selected.details}</p>}
+            {selected.relatedTechnologies?.length ? (
+              <div className="tags">{selected.relatedTechnologies.map((item) => <span key={item}>{item}</span>)}</div>
+            ) : null}
+          </div>
+        </aside>
+      )}
+      <figcaption id={`${diagram.id}-caption`}>{diagram.title}: {diagram.description}</figcaption>
+    </figure>
+  );
 }
