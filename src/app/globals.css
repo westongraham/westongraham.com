@@ -197,7 +197,9 @@ html.dark .theme-icon-dark { opacity: 1; transform: rotate(0); }
 .experience-timeline-marker > span { width: 42px; height: 42px; border: 1px solid color-mix(in srgb, var(--blue) 48%, var(--line)); border-radius: 50%; background: var(--bg); color: var(--blue); box-shadow: 0 0 0 8px var(--bg); display: grid; place-items: center; }
 .experience-timeline-meta { grid-column: 1; grid-row: 1; padding-right: 22px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; }
 .experience-timeline-number { margin-bottom: 16px; color: var(--blue); font-size: .67rem; font-weight: 760; letter-spacing: .15em; }
-.experience-timeline-meta strong { max-width: 300px; font-family: var(--display); font-size: clamp(1.75rem, 2.6vw, 2.65rem); font-weight: 400; letter-spacing: -.045em; line-height: 1; }
+.experience-company { max-width: 360px; display: flex; flex-direction: row-reverse; align-items: center; gap: 14px; }
+.experience-company img { width: 48px; height: 48px; flex: 0 0 auto; border: 1px solid color-mix(in srgb, var(--blue) 24%, var(--line)); border-radius: 13px; box-shadow: 0 10px 24px rgba(18, 35, 57, .09); }
+.experience-company strong { max-width: 300px; font-family: var(--display); font-size: clamp(1.75rem, 2.6vw, 2.65rem); font-weight: 400; letter-spacing: -.045em; line-height: 1; }
 .experience-timeline-meta time { margin-top: 11px; color: var(--muted); font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .experience-role-card { grid-column: 3; grid-row: 1; padding: 28px !important; border-color: var(--line) !important; border-radius: var(--radius-md) !important; background: var(--surface) !important; box-shadow: 0 18px 50px rgba(18, 35, 57, .055); }
 .experience-role-card .card__header { padding: 0 !important; }
@@ -209,6 +211,7 @@ html.dark .theme-icon-dark { opacity: 1; transform: rotate(0); }
 .experience-role-card li svg { flex: 0 0 auto; margin-top: 3px; color: var(--blue); }
 .experience-role-card .card__footer { margin-top: 24px; padding: 18px 0 0 !important; border-top: 1px solid var(--line); }
 .experience-timeline-entry:nth-child(even) .experience-timeline-meta { grid-column: 3; padding-right: 0; padding-left: 22px; text-align: left; align-items: flex-start; }
+.experience-timeline-entry:nth-child(even) .experience-company { flex-direction: row; }
 .experience-timeline-entry:nth-child(even) .experience-role-card { grid-column: 1; }
 .trajectory-chips { display: flex; flex-wrap: wrap; gap: 7px; }
 .experience-timeline-cta { margin: 44px auto 0; padding-top: 24px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
@@ -370,8 +373,10 @@ figcaption { margin-top: 12px; color: var(--muted); font-size: .68rem; }
   .experience-timeline-marker { position: absolute; top: 1px; left: 4px; grid-column: auto; grid-row: auto; }
   .experience-timeline-meta,
   .experience-timeline-entry:nth-child(even) .experience-timeline-meta { grid-column: 1; grid-row: auto; padding: 0; text-align: left; align-items: flex-start; }
+  .experience-company,
+  .experience-timeline-entry:nth-child(even) .experience-company { flex-direction: row; }
   .experience-timeline-number { margin-bottom: 10px; }
-  .experience-timeline-meta strong { font-size: 2rem; }
+  .experience-company strong { font-size: 2rem; }
   .experience-role-card,
   .experience-timeline-entry:nth-child(even) .experience-role-card { width: 100%; margin-top: 20px; grid-column: 1; grid-row: auto; }
   .principle-grid { grid-template-columns: 1fr; }
@@ -440,7 +445,9 @@ figcaption { margin-top: 12px; color: var(--muted); font-size: .68rem; }
   .experience-timeline-entry { padding: 0 0 48px 56px; }
   .experience-timeline-marker { left: 0; }
   .experience-timeline-marker > span { width: 40px; height: 40px; box-shadow: 0 0 0 6px var(--bg); }
-  .experience-timeline-meta strong { font-size: 1.75rem; }
+  .experience-company { gap: 11px; }
+  .experience-company img { width: 42px; height: 42px; border-radius: 11px; }
+  .experience-company strong { font-size: 1.75rem; }
   .experience-role-card,
   .experience-timeline-entry:nth-child(even) .experience-role-card { margin-top: 16px; padding: 22px 18px !important; }
   .experience-role-card .card__title { font-size: 1.65rem; }

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import { ArrowUpRight, Briefcase, CheckCircle } from "@phosphor-icons/react";
 import { Button, Card, Chip } from "@heroui/react";
@@ -55,7 +56,10 @@ export function ExperienceTimeline({ compact = false }: { compact?: boolean }) {
 
               <div className="experience-timeline-meta">
                 <span className="experience-timeline-number">0{index + 1}</span>
-                <strong>{item.company}</strong>
+                <div className="experience-company">
+                  <Image src={item.companyLogo.src} alt={item.companyLogo.alt} width={48} height={48} />
+                  <strong>{item.company}</strong>
+                </div>
                 <time>{item.dates}</time>
               </div>
 
