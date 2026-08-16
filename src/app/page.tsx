@@ -1,10 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowDown, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
-import { Card } from "@heroui/react";
 import { HomeExperience } from "@/components/home-motion";
 import { JsonLd } from "@/components/json-ld";
+import { ProjectCard } from "@/components/project-card";
 import { SystemStack } from "@/components/system-stack";
 import { caseStudies } from "@/data/case-studies";
 import { absoluteUrl, metadataFor, staticSeoRoutes } from "@/data/seo";
@@ -36,20 +35,15 @@ export default function Home() {
         <div className="page-shell section-heading"><p className="section-label">Selected work</p><h2 id="work-title">A few things I&apos;ve<br /><em>built and explored.</em></h2></div>
         <div className="project-grid page-shell">
           {caseStudies.map((project, index) => (
-            <Link className={`project-card project-card-${index + 1}`} href={`/projects/${project.slug}`} key={project.slug}>
-              <Card variant="secondary">
-                <div className="project-media">
-                  {project.heroImage ? <Image src={project.heroImage.src} alt={project.heroImage.alt} fill sizes="(max-width: 760px) 100vw, 50vw" /> : <div className="groundwork-visual"><span>Groundwork</span><strong>AI, made<br />practical.</strong><small>Learn · Apply · Build</small></div>}
-                </div>
-                <Card.Content>
-                  <span className="project-number">0{index + 1}</span>
-                  <p className="section-label">{project.eyebrow}</p>
-                  <Card.Title>{project.title}</Card.Title>
-                  <Card.Description>{project.cardDescription}</Card.Description>
-                  <b>View project <ArrowUpRight size={17} /></b>
-                </Card.Content>
-              </Card>
-            </Link>
+            <ProjectCard
+              key={project.slug}
+              slug={project.slug}
+              title={project.title}
+              eyebrow={project.eyebrow}
+              description={project.cardDescription}
+              heroImage={project.heroImage}
+              index={index}
+            />
           ))}
         </div>
       </section>

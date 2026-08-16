@@ -286,6 +286,7 @@ html.dark .theme-icon-dark { opacity: 1; transform: rotate(0); }
 
 /* Case studies and articles */
 .case-study > h1 { max-width: 1000px; }
+.case-actions { margin-top: 32px; display: flex; }
 .case-hero-art { margin: 80px 0 0; }
 .case-hero-art img { width: 100%; max-height: 760px; border-radius: var(--radius-md); object-fit: cover; box-shadow: var(--shadow-soft); }
 figcaption { margin-top: 12px; color: var(--muted); font-size: .68rem; }
