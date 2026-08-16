@@ -13,8 +13,8 @@ export default function ProjectsPage() {
     <main className="page-shell editorial-page">
       <header className="page-hero">
         <p className="section-label">Selected work</p>
-        <h1>Software shaped by<br /><em>real constraints.</em></h1>
-        <p className="lede">Product work, connected systems, and research projects—each grounded in a specific problem and the people affected by it.</p>
+        <h1>Things I&apos;ve built<br /><em>and learned from.</em></h1>
+        <p className="lede">A mix of full-stack apps, AI experiments, design work, and school projects. Each one started with a problem I wanted to understand or solve.</p>
       </header>
       <div className="project-index">
         {caseStudies.map((project, index) => (
@@ -28,7 +28,7 @@ export default function ProjectsPage() {
                 <p className="section-label">{project.eyebrow}</p>
                 <Card.Title>{project.title}</Card.Title>
                 <Card.Description>{project.summary}</Card.Description>
-                <b>Read case study <ArrowUpRight size={17} /></b>
+                <b>View project <ArrowUpRight size={17} /></b>
               </Card.Content>
             </Card>
           </Link>

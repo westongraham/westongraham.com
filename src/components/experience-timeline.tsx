@@ -25,10 +25,10 @@ export function ExperienceTimeline({ compact = false }: { compact?: boolean }) {
     <section className={`trajectory ${compact ? "is-compact" : ""}`} aria-labelledby={compact ? "home-trajectory-title" : "timeline-title"}>
       <div className="trajectory-heading">
         <div>
-          <p className="section-label">Career progression</p>
-          <h2 id={compact ? "home-trajectory-title" : "timeline-title"}>Systems I build.<br />Impact I <em>deliver.</em></h2>
+          <p className="section-label">Experience</p>
+          <h2 id={compact ? "home-trajectory-title" : "timeline-title"}>What I&apos;ve been<br /><em>working on.</em></h2>
         </div>
-        <p>From logistics operations to connected enterprise software—each role added context for the next system.</p>
+        <p>I started in logistics operations and gradually moved closer to the software behind the work.</p>
       </div>
 
       <div className="experience-timeline-wrap" ref={timelineRef}>
@@ -86,7 +86,7 @@ export function ExperienceTimeline({ compact = false }: { compact?: boolean }) {
 
       {!compact ? (
         <div className="experience-timeline-cta">
-          <p>Want the complete role history and project detail?</p>
+          <p>Want the full role history and more detail?</p>
           <Button variant="ghost" size="sm" onPress={() => window.open("/documents/weston-graham-resume.pdf", "_blank")}>
             View resume <ArrowUpRight size={16} />
           </Button>

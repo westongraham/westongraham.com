@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 import { Brain, Browser, Code, Database, EnvelopeSimple, PlugsConnected } from "@phosphor-icons/react";
 
 const layers = [
-  { label: "Interface", detail: "Clear tools for real work", icon: Browser },
-  { label: "APIs", detail: "Reliable system boundaries", icon: Code },
-  { label: "Data", detail: "Trusted context", icon: Database },
-  { label: "Integrations", detail: "Connected enterprise tools", icon: PlugsConnected },
-  { label: "AI workflow", detail: "Understand and automate", icon: Brain },
-  { label: "Response", detail: "A useful outcome", icon: EnvelopeSimple },
+  { label: "Interface", detail: "What the user sees", icon: Browser },
+  { label: "APIs", detail: "How data moves", icon: Code },
+  { label: "Data", detail: "What the app needs", icon: Database },
+  { label: "Integrations", detail: "Tools working together", icon: PlugsConnected },
+  { label: "AI", detail: "Where it can help", icon: Brain },
+  { label: "Result", detail: "Something useful", icon: EnvelopeSimple },
 ] as const;
 
 export function SystemStack() {
   return (
-    <div className="system-stack-visual" aria-label="A layered enterprise system from interface to automated response">
+    <div className="system-stack-visual" aria-label="The parts of a full-stack application, from interface to result">
       <div className="system-spine" aria-hidden="true" />
       {layers.map((layer, index) => {
         const Icon = layer.icon;

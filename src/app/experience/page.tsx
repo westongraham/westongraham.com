@@ -9,8 +9,8 @@ export default function ExperiencePage() {
     <main className="page-shell editorial-page experience-page">
       <header className="page-hero">
         <p className="section-label">Experience</p>
-        <h1>From operations to<br /><em>enterprise systems.</em></h1>
-        <p className="lede">I started close to the work, then moved into building the software behind it. That path still shapes how I understand users, systems, and trade-offs.</p>
+        <h1>How I got into<br /><em>building software.</em></h1>
+        <p className="lede">I started on the operations side of logistics, moved into supporting internal tools, and eventually began building them. That background still helps me understand the people using the software and the reasons behind the work.</p>
       </header>
       <ExperienceTimeline />
     </main>

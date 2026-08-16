@@ -19,8 +19,8 @@ export default function Home() {
       <section className="home-hero page-shell" aria-labelledby="hero-title">
         <div className="hero-copy">
           <p className="section-label">Full-stack engineer · Arkansas</p>
-          <h1 id="hero-title">I build enterprise software that turns complex work into <em>simpler systems.</em></h1>
-          <p className="hero-lede">Production applications, integrations, APIs, and AI workflows—designed around the people who use them.</p>
+          <h1 id="hero-title">I build software to solve <em>real problems.</em></h1>
+          <p className="hero-lede">I work across full-stack applications, APIs, integrations, automation, and AI. I like taking something complicated, figuring out how it works, and making it better.</p>
           <div className="hero-actions">
             <Link className="primary-action" href="/projects">Explore selected work <ArrowUpRight size={18} /></Link>
             <a className="secondary-action" href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer">View resume <ArrowDown size={18} /></a>
@@ -33,7 +33,7 @@ export default function Home() {
       <HomeExperience />
 
       <section className="work-section" id="work" aria-labelledby="work-title">
-        <div className="page-shell section-heading"><p className="section-label">Selected work</p><h2 id="work-title">Systems built around<br /><em>real work.</em></h2></div>
+        <div className="page-shell section-heading"><p className="section-label">Selected work</p><h2 id="work-title">A few things I&apos;ve<br /><em>built and explored.</em></h2></div>
         <div className="project-grid page-shell">
           {caseStudies.map((project, index) => (
             <Link className={`project-card project-card-${index + 1}`} href={`/projects/${project.slug}`} key={project.slug}>
@@ -46,7 +46,7 @@ export default function Home() {
                   <p className="section-label">{project.eyebrow}</p>
                   <Card.Title>{project.title}</Card.Title>
                   <Card.Description>{project.cardDescription}</Card.Description>
-                  <b>View case study <ArrowUpRight size={17} /></b>
+                  <b>View project <ArrowUpRight size={17} /></b>
                 </Card.Content>
               </Card>
             </Link>
@@ -55,8 +55,8 @@ export default function Home() {
       </section>
 
       <section className="contact-section page-shell">
-        <p className="section-label">Let&apos;s build something useful</p>
-        <h2>Have a complex problem<br />that needs a <em>clearer system?</em></h2>
+        <p className="section-label">Get in touch</p>
+        <h2>Want to talk about software,<br />AI, or something you&apos;re <em>building?</em></h2>
         <a className="primary-action" href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry">Start a conversation <ArrowUpRight size={18} /></a>
       </section>
     </main>

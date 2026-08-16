@@ -40,37 +40,37 @@ export const caseStudies: CaseStudy[] = [
     title: "Groundwork AI",
     eyebrow: "AI education · Consulting · Implementation",
     summary:
-      "A practical AI education and consulting platform that helps everyday people and small businesses understand, adopt, and implement AI.",
+      "I built Groundwork AI to help everyday people and businesses find practical ways to use AI and get help putting those ideas into practice.",
     cardDescription:
-      "Practical AI education, examples, and hands-on implementation help.",
+      "Practical AI examples, guides, consulting, and hands-on help.",
     users: [
       "Everyday people who want to use AI in their daily lives",
       "Small businesses exploring AI adoption and automation",
     ],
     role:
-      "Designed and built the platform, its content system, and the consulting experience.",
+      "I designed and built the site, organized its guides and examples, and shaped how people can ask for consulting or implementation help.",
     problem:
-      "AI can save time, improve decision-making, and automate repetitive work, but many people struggle to translate its potential into something useful. Existing resources are often too technical, too theoretical, or disconnected from the everyday problems people and small businesses actually face.",
+      "I kept seeing the same problem: people hear constantly about what AI can do, but a lot of them still do not know what they should actually use it for. Many resources are either too technical or too vague to help someone take a useful first step.",
     responsibilities: [
-      "Defined the product strategy for both everyday users and small-business teams.",
-      "Created approachable guides, reusable prompts, and real-world examples of personal and business use cases.",
-      "Built reusable project and resource collections with dynamic detail pages.",
-      "Designed a responsive experience for education, consulting, and implementation services.",
-      "Deployed and iterated on the platform through Vercel.",
+      "Built the site for both everyday users and businesses, rather than treating AI as a business-only topic.",
+      "Created guides, reusable prompts, and examples based on personal and business use cases.",
+      "Built reusable collections and dynamic pages for projects and resources.",
+      "Added clear paths for people who want consulting or hands-on implementation help.",
+      "Deployed the project on Vercel and continued improving it as the idea developed.",
     ],
     results:
-      "Groundwork AI gives people an approachable starting point for AI adoption—whether they want to learn through practical examples, improve their everyday routines, or get hands-on help implementing AI within their business.",
+      "Groundwork is my attempt to make AI easier to act on. Someone can explore a practical example, find an idea for daily life or work, or ask for help applying it to their own situation.",
     technologyStack: ["Next.js", "React", "CSS Modules", "Vercel"],
     decisions: [
       {
-        decision: "Organize the platform around real-life outcomes instead of AI terminology.",
+        decision: "Organize the site around things people want to do, not AI terminology.",
         rationale:
-          "People are more likely to understand AI when examples connect directly to problems in their work or daily life.",
+          "An example is easier to understand when it connects to a problem someone already has at work or in daily life.",
       },
       {
         decision: "Combine self-guided education with consulting and implementation services.",
         rationale:
-          "Some users want resources they can explore independently, while others need personalized guidance or hands-on help putting AI solutions into practice.",
+          "Some people want to learn on their own. Others have a specific problem and want help figuring out or building the right approach.",
       },
     ],
     testing: [
@@ -78,9 +78,9 @@ export const caseStudies: CaseStudy[] = [
       "Validated navigation and dynamic routes for projects, resources, and services.",
     ],
     deployment:
-      "Deployed on Vercel with reusable routes for project examples, educational resources, and consulting services.",
+      "I deployed the site on Vercel and used reusable routes for examples, guides, and services.",
     lessonsLearned:
-      "Successful AI adoption starts with the person’s problem—not the technology. Specific, relatable examples make AI easier to understand and give people the confidence to begin using it.",
+      "Starting with the person’s problem works better than starting with the technology. The more specific and familiar the example is, the easier it is for someone to see where AI might actually help.",
     repository: {
       label: "Private repository",
       note: "Source code is private, but the deployed product is available to explore.",
@@ -104,9 +104,9 @@ export const caseStudies: CaseStudy[] = [
       caption: "Dance Studio Costume Manager project overview.",
     },
     problem:
-      "Costume ordering requires accurate measurements, vendor size charts, and repeated manual lookups. When records and reference materials are in different places, it takes longer to prepare an order and creates more room for mistakes.",
+      "A dance studio needed a better way to keep dancer measurements and vendor size charts together. Looking back and forth between separate records took time and made costume ordering easier to get wrong.",
     results:
-      "The tool keeps measurements organized and converts them into the right vendor sizes, giving the user one place to prepare an order.",
+      "I built one place to store measurements and match them to the right vendor sizes while preparing an order.",
     technologyStack: ["React", "Supabase", "Tailwind CSS"],
     architecture: danceStudioArchitecture,
     lessonsLearned:
@@ -126,7 +126,7 @@ export const caseStudies: CaseStudy[] = [
       caption: "AutoFarm senior capstone research poster.",
     },
     problem:
-      "The goal was to explore whether computer vision could help monitor maize plants. We needed to turn image-processing results into something a user could upload, review, and understand through a web application.",
+      "For my senior capstone, our team explored whether computer vision could help monitor maize plants. We also needed a web app where someone could upload an image and understand the results.",
     role: "Contributed to the React and Flask workflow for uploading images and reviewing results.",
     results:
       "The proof of concept included leaf count, color analysis, and growth-stage detection in a web workflow for uploading images and viewing results.",
@@ -147,9 +147,9 @@ export const caseStudies: CaseStudy[] = [
       caption: "Attitudes Performing Arts redesign project overview.",
     },
     problem:
-      "Families needed to find class schedules, enrollment details, and contact information quickly. The existing site had the information, but it was difficult to scan and especially hard to use on a phone.",
+      "The studio's website had the information families needed, but schedules, enrollment details, and contact information were difficult to scan, especially on a phone.",
     results:
-      "The redesign reorganized the site around the questions a new family is likely to have, improved the mobile experience, and made next steps easier to find.",
+      "I reorganized the site around the questions a new family is likely to have and made schedules, enrollment, and contact information easier to find on mobile.",
     technologyStack: ["UX design", "Responsive UI", "Content strategy"],
     lessonsLearned:
       "A redesign is not just about making a site look newer. It should help visitors find the information they came for with less effort.",
