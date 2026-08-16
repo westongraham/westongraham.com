@@ -6,7 +6,7 @@ import { Button, Card, Chip } from "@heroui/react";
 import { useRef } from "react";
 import { careerMilestones } from "@/data/experience";
 
-const timelineMilestones = [...careerMilestones].reverse();
+const timelineMilestones = [...careerMilestones];
 
 export function ExperienceTimeline({ compact = false }: { compact?: boolean }) {
   const timelineRef = useRef<HTMLDivElement>(null);
