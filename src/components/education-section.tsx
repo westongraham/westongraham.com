@@ -7,8 +7,8 @@ const educationItems = [
     title: "Bachelor of Science in Information Technology",
     organization: "Programming · University of Arkansas – Fort Smith",
     description: "Coursework included artificial intelligence, data structures, distributed systems, and computer architecture.",
-    image: "/images/diploma.jpg",
-    imageAlt: "Weston Graham's Bachelor of Science diploma from the University of Arkansas – Fort Smith",
+    image: "/images/UAFSLogo.png",
+    imageAlt: "University of Arkansas – Fort Smith logo",
   },
   {
     label: "Certification",

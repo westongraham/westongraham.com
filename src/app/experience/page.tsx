@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { EducationSection } from "@/components/education-section";
-import { ExperienceTimeline } from "@/components/experience-timeline";
+import { ExperienceResumeCta, ExperienceTimeline } from "@/components/experience-timeline";
 import { metadataFor, staticSeoRoutes } from "@/data/seo";
 
 export const metadata: Metadata = metadataFor(staticSeoRoutes[2]);
@@ -15,6 +15,7 @@ export default function ExperiencePage() {
       </header>
       <ExperienceTimeline />
       <EducationSection />
+      <ExperienceResumeCta />
     </main>
   );
 }

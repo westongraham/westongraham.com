@@ -87,15 +87,17 @@ export function ExperienceTimeline({ compact = false }: { compact?: boolean }) {
           ))}
         </ol>
       </div>
-
-      {!compact ? (
-        <div className="experience-timeline-cta">
-          <p>Want the full role history and more detail?</p>
-          <Button variant="ghost" size="sm" onPress={() => window.open("/documents/weston-graham-resume.pdf", "_blank")}>
-            View resume <ArrowUpRight size={16} />
-          </Button>
-        </div>
-      ) : null}
     </section>
+  );
+}
+
+export function ExperienceResumeCta() {
+  return (
+    <div className="experience-timeline-cta">
+      <p>Want the full role history and more detail?</p>
+      <Button variant="ghost" size="sm" onPress={() => window.open("/documents/weston-graham-resume.pdf", "_blank")}>
+        View resume <ArrowUpRight size={16} />
+      </Button>
+    </div>
   );
 }

@@ -45,7 +45,7 @@ export function SiteHeader() {
       <header className={`site-header ${open ? "menu-is-open" : ""}`}>
         <div className="site-header-inner">
           <Link className="wordmark" href="/" aria-label="Weston Graham home" onClick={() => setOpen(false)}>
-            Weston<span>Graham</span>
+            Weston{" "}<span>Graham</span>
           </Link>
           <nav className="site-nav" aria-label="Primary navigation">
             {links.map((link) => (
