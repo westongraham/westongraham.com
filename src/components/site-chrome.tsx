@@ -45,7 +45,7 @@ export function SiteHeader() {
       <header className={`site-header ${open ? "menu-is-open" : ""}`}>
         <div className="site-header-inner">
           <Link className="wordmark" href="/" aria-label="Weston Graham home" onClick={() => setOpen(false)}>
-            Weston<span>Graham</span>
+            Weston{" "}<span>Graham</span>
           </Link>
           <nav className="site-nav" aria-label="Primary navigation">
             {links.map((link) => (
@@ -57,7 +57,7 @@ export function SiteHeader() {
           </nav>
           <div className="site-actions">
             <ThemeToggle />
-            <a className="contact-pill" href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry">Let&apos;s talk</a>
+            <a className="contact-pill" href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry">Contact</a>
             <button
               ref={menuButtonRef}
               className="menu-button"
@@ -76,7 +76,7 @@ export function SiteHeader() {
         <nav ref={mobileMenuRef} className="mobile-menu" id="mobile-navigation" aria-label="Mobile navigation">
           {links.map((link) => <Link aria-current={pathname.startsWith(link.href) ? "page" : undefined} href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>)}
           <a href="/documents/weston-graham-resume.pdf" target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>Resume</a>
-          <a href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry" onClick={() => setOpen(false)}>Let&apos;s talk</a>
+          <a href="mailto:westongraham11@gmail.com?subject=Portfolio%20inquiry" onClick={() => setOpen(false)}>Contact</a>
         </nav>
       ) : null}
     </>
@@ -88,7 +88,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div>
         <p className="section-label">Weston Graham · Full-stack engineer</p>
-        <h2>Complex systems.<br /><em>Made clear.</em></h2>
+        <h2>Figure out how it works.<br /><em>Then make it better.</em></h2>
       </div>
       <div className="footer-links">
         <Link href="/projects">Work</Link><Link href="/experience">Experience</Link><Link href="/about">About</Link>
