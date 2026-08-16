@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowDown, ArrowUpRight, CheckCircle, EnvelopeSimple, PlugsConnected, Sparkle } from "@phosphor-icons/react/dist/ssr";
-import { Card, Chip } from "@heroui/react";
-import { HomeExperience, RequestWorkflow } from "@/components/home-motion";
+import { ArrowDown, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { Card } from "@heroui/react";
+import { HomeExperience } from "@/components/home-motion";
 import { JsonLd } from "@/components/json-ld";
 import { SystemStack } from "@/components/system-stack";
 import { caseStudies } from "@/data/case-studies";
@@ -30,33 +30,7 @@ export default function Home() {
         <SystemStack />
       </section>
 
-      <RequestWorkflow />
-
-      <section className="featured-system page-shell" aria-labelledby="featured-system-title">
-        <div className="section-heading split-heading">
-          <div><p className="section-label">Featured system</p><h2 id="featured-system-title">Enterprise AI<br /><em>Email Automation</em></h2></div>
-          <p>A request enters once. The system understands the context, connects the right tools, and sends a clear response.</p>
-        </div>
-        <Card className="automation-product" variant="secondary">
-          <div className="automation-sidebar">
-            <div className="product-mark"><Sparkle size={18} weight="fill" />Automation hub</div>
-            <nav aria-label="Automation product sections"><span className="is-active">Overview</span><span>Requests</span><span>Workflows</span><span>Connections</span></nav>
-          </div>
-          <div className="automation-workspace">
-            <header><div><p className="section-label">Workflow</p><h3>Account access request</h3></div><Chip color="success" variant="soft" size="sm">Active</Chip></header>
-            <div className="automation-flow" aria-label="Email request workflow">
-              <div><EnvelopeSimple size={21} /><span>Email received</span><small>Microsoft 365</small></div><i>→</i>
-              <div><Sparkle size={21} /><span>Analyze intent</span><small>AI classifier</small></div><i>→</i>
-              <div><PlugsConnected size={21} /><span>Update access</span><small>Connected systems</small></div><i>→</i>
-              <div><CheckCircle size={21} /><span>Notify user</span><small>Resolved</small></div>
-            </div>
-            <div className="automation-panels">
-              <section><p className="section-label">Request summary</p><dl><div><dt>Channel</dt><dd>Email</dd></div><div><dt>Intent</dt><dd>Access request</dd></div><div><dt>Resolution</dt><dd>Under two minutes</dd></div></dl></section>
-              <section><p className="section-label">Recent activity</p><ul><li><CheckCircle size={15} />User verified</li><li><CheckCircle size={15} />Access updated</li><li><CheckCircle size={15} />Confirmation sent</li></ul></section>
-            </div>
-          </div>
-        </Card>
-      </section>
+      <HomeExperience />
 
       <section className="work-section" id="work" aria-labelledby="work-title">
         <div className="page-shell section-heading"><p className="section-label">Selected work</p><h2 id="work-title">Systems built around<br /><em>real work.</em></h2></div>
@@ -79,8 +53,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <HomeExperience />
 
       <section className="contact-section page-shell">
         <p className="section-label">Let&apos;s build something useful</p>
