@@ -218,6 +218,20 @@ html.dark .theme-icon-dark { opacity: 1; transform: rotate(0); }
 .experience-timeline-cta p { margin: 0; color: var(--muted); font-size: .82rem; }
 .home-trajectory-wrap > .text-link { margin-top: 30px; }
 
+.education-section { margin-top: 140px; padding-top: 110px; border-top: 1px solid var(--line); }
+.education-heading { display: grid; grid-template-columns: 1.2fr .7fr; gap: 90px; align-items: end; }
+.education-heading h2 { margin: 0; font-family: var(--display); font-size: clamp(3.8rem, 6vw, 6.6rem); font-weight: 400; letter-spacing: -.06em; line-height: .93; }
+.education-heading > p { max-width: 430px; margin: 0 0 8px; color: var(--muted); }
+.education-grid { margin-top: 70px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
+.education-card { min-width: 0; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); overflow: hidden; box-shadow: 0 18px 50px rgba(18, 35, 57, .045); }
+.education-card-media { position: relative; min-height: 290px; border-bottom: 1px solid var(--line); background: #fff; }
+.education-card-media img { padding: 26px; object-fit: contain; }
+.education-card-copy { padding: 30px; }
+.education-card-copy h3 { margin: 7px 0 10px; font-family: var(--display); font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 400; letter-spacing: -.04em; line-height: 1.06; }
+.education-card-copy strong { color: var(--blue); font-size: .78rem; }
+.education-card-copy > p:not(.section-label) { margin: 18px 0 0; color: var(--muted); }
+.education-card-copy a { margin-top: 22px; color: var(--ink); font-size: .76rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+
 .contact-section { padding: 170px 0; text-align: center; }
 .contact-section h2 { margin-bottom: 42px; }
 
@@ -358,7 +372,7 @@ figcaption { margin-top: 12px; color: var(--muted); font-size: .68rem; }
   .mobile-menu a { min-height: 58px; padding: 10px 4px; border-bottom: 1px solid var(--line); font-family: var(--display); font-size: clamp(1.65rem, 6vw, 2.15rem); display: flex; align-items: center; }
   .mobile-menu a[aria-current="page"] { color: var(--blue); }
   .mobile-menu a:nth-last-child(-n + 2) { font-family: var(--sans); font-size: .82rem; font-weight: 700; }
-  .home-hero, .workflow-shell, .split-heading, .trajectory-heading, .split-copy { grid-template-columns: 1fr; }
+  .home-hero, .workflow-shell, .split-heading, .trajectory-heading, .education-heading, .split-copy { grid-template-columns: 1fr; }
   .home-hero { padding-top: 80px; }
   .system-stack-visual { min-height: 560px; width: min(620px, 100%); margin: auto; }
   .workflow-intro { max-width: 660px; }
@@ -382,6 +396,8 @@ figcaption { margin-top: 12px; color: var(--muted); font-size: .68rem; }
   .principle-grid { grid-template-columns: 1fr; }
   .case-section { grid-template-columns: 1fr; gap: 24px; }
   .build-log > article { grid-template-columns: 1fr; }
+  .education-heading { gap: 24px; }
+  .education-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 680px) {
@@ -455,6 +471,12 @@ figcaption { margin-top: 12px; color: var(--muted); font-size: .68rem; }
   .experience-role-card .card__footer { margin-top: 20px; }
   .experience-timeline-cta { align-items: flex-start; flex-direction: column; }
   .experience-timeline-cta .button { width: 100%; min-height: 46px; }
+  .education-section { margin-top: 100px; padding-top: 78px; }
+  .education-heading h2 { font-size: clamp(3rem, 13vw, 4.35rem); }
+  .education-grid { margin-top: 48px; gap: 18px; }
+  .education-card-media { min-height: 230px; }
+  .education-card-media img { padding: 18px; }
+  .education-card-copy { padding: 24px 22px; }
   .editorial-page { padding: 68px 0 100px; }
   .page-hero { padding-bottom: 65px; }
   .editorial-page h1, .page-hero h1, .article-header h1 { font-size: clamp(3rem, 13.5vw, 4.5rem); letter-spacing: -.055em; overflow-wrap: anywhere; }

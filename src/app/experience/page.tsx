@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { EducationSection } from "@/components/education-section";
 import { ExperienceTimeline } from "@/components/experience-timeline";
 import { metadataFor, staticSeoRoutes } from "@/data/seo";
 
@@ -13,6 +14,7 @@ export default function ExperiencePage() {
         <p className="lede">I started on the operations side of logistics, moved into supporting internal tools, and eventually began building them. That background still helps me understand the people using the software and the reasons behind the work.</p>
       </header>
       <ExperienceTimeline />
+      <EducationSection />
     </main>
   );
 }
