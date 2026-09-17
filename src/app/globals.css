@@ -422,6 +422,70 @@ em {
   font-size: 0.73rem;
   color: var(--muted);
 }
+.buy-visual {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px;
+  color: var(--ink);
+}
+.buy-visual > span {
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+.buy-visual > small {
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+.buy-question {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--project-accent, var(--case-accent)) 25%,
+      var(--line)
+    );
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 0 20px 50px
+    color-mix(
+      in srgb,
+      var(--project-accent, var(--case-accent)) 12%,
+      transparent
+    );
+}
+.buy-question small {
+  color: var(--muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.buy-question strong {
+  max-width: 360px;
+  font-size: clamp(1.25rem, 3vw, 2.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+.buy-question i {
+  display: block;
+  height: 7px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+.buy-question i b {
+  display: block;
+  width: 72%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--project-accent, var(--case-accent));
+}
 .home-experience {
   display: grid;
   gap: 28px;
@@ -1399,6 +1463,9 @@ em {
 .project-attitudes-performing-arts {
   --project-accent: #e06c43;
 }
+.project-before-you-buy {
+  --project-accent: #d9892b;
+}
 .project-card::after {
   content: "";
   position: absolute;
@@ -1846,6 +1913,9 @@ em {
 .case-attitudes-performing-arts {
   --case-accent: #e06c43;
 }
+.case-before-you-buy {
+  --case-accent: #d9892b;
+}
 .case-intro {
   display: grid;
   gap: 32px;
@@ -1892,6 +1962,11 @@ em {
   transform: scale(1.025);
 }
 .case-intro-visual .groundwork-visual {
+  position: relative;
+  z-index: 1;
+  min-height: 340px;
+}
+.case-intro-visual .buy-visual {
   position: relative;
   z-index: 1;
   min-height: 340px;

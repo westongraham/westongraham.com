@@ -39,6 +39,73 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "before-you-buy",
+    title: "Before You Buy",
+    eyebrow: "Personal finance · AI-assisted utility",
+    summary:
+      "A private, lightweight decision tool for answering two questions: can I comfortably afford this, and is it worth the money and time?",
+    cardDescription:
+      "A private purchase check for affordability, value, and peace of mind.",
+    users: [
+      "Thoughtful buyers who want a clearer affordability check",
+      "People who tend to overthink larger purchases",
+    ],
+    role: "I defined the problem, shaped the decision flow, and used ChatGPT’s Sites feature to turn the idea into a working utility quickly.",
+    problem:
+      "I care about living within my means and avoiding consumer debt, but I can still overthink larger purchases. A bank balance alone does not answer whether a purchase is comfortable, responsible, and genuinely worth the time it took to earn the money.",
+    responsibilities: [
+      "Translated my own purchase-decision process into a short, guided set of questions.",
+      "Prompted and iterated on the experience using ChatGPT Sites instead of starting a traditional software project.",
+      "Kept the tool focused on a clear recommendation rather than adding accounts, dashboards, or unnecessary features.",
+      "Made privacy part of the product: users can enter personal financial details without that data being collected or stored.",
+    ],
+    constraints: [
+      "No accounts, saved history, or personal-finance database.",
+      "The experience needed to be useful in a few minutes, not become another system to maintain.",
+      "The recommendation should support a decision without pretending to replace personal judgment.",
+    ],
+    technologyStack: [
+      "ChatGPT Sites",
+      "AI-assisted prototyping",
+      "Web utility",
+    ],
+    decisions: [
+      {
+        decision: "Build the smallest useful tool.",
+        rationale:
+          "This problem did not need a custom backend or weeks of engineering. A focused utility could provide the value faster and with less friction.",
+      },
+      {
+        decision: "Collect no personal financial data.",
+        rationale:
+          "People should be able to answer sensitive affordability questions without wondering where their income, savings, or purchase details are being stored.",
+      },
+      {
+        decision: "Consider value as well as affordability.",
+        rationale:
+          "Being able to pay for something does not automatically make it a good use of money or of the time required to earn it.",
+      },
+    ],
+    testing: [
+      "Walked through different purchase scenarios to make sure the questions lead to a useful decision.",
+      "Reviewed the experience as a quick mobile utility rather than a long financial questionnaire.",
+    ],
+    security: [
+      "The tool was intentionally prompted and designed not to collect or store the financial information users enter.",
+      "No account is required to use it.",
+    ],
+    deployment:
+      "Built and published with ChatGPT Sites as a fast path from a personal problem to a usable public tool.",
+    results:
+      "Before You Buy turns a familiar moment of uncertainty into a short, structured decision. It also demonstrates that good problem solving sometimes means choosing a fast, lightweight tool instead of fully engineering a product.",
+    lessonsLearned:
+      "Not every useful idea needs a full application. New AI tools can make small, specific solutions worth building—as long as the scope, privacy, and purpose remain intentional.",
+    demo: {
+      url: "https://before-you-buy.weston-graham.chatgpt.site",
+      label: "Try Before You Buy",
+    },
+  },
+  {
     slug: "groundwork-ai",
     title: "Groundwork AI",
     eyebrow: "AI education · Consulting · Implementation",
@@ -165,6 +232,7 @@ export function getCaseStudy(slug: string) {
 }
 
 const projectOrder = [
+  "before-you-buy",
   "dance-studio-costume-manager",
   "groundwork-ai",
   "autofarm",
@@ -173,4 +241,11 @@ const projectOrder = [
 export const orderedCaseStudies = projectOrder.map((slug) =>
   caseStudies.find((study) => study.slug === slug)!,
 );
-export const selectedCaseStudies = orderedCaseStudies.slice(0, 3);
+const selectedProjectOrder = [
+  "dance-studio-costume-manager",
+  "groundwork-ai",
+  "autofarm",
+];
+export const selectedCaseStudies = selectedProjectOrder.map((slug) =>
+  caseStudies.find((study) => study.slug === slug)!,
+);

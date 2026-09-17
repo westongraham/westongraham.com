@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { ProjectTemplate } from "@/components/project-template";
+import { ProjectVisual } from "@/components/project-card";
 import { caseStudies, getCaseStudy } from "@/data/case-studies";
 import { absoluteUrl, projectSeoRoute, SITE_NAME } from "@/data/seo";
 
@@ -101,15 +102,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               sizes="(max-width: 800px) 100vw, 55vw"
             />
           ) : (
-            <div className="groundwork-visual">
-              <span>Groundwork AI</span>
-              <strong>
-                Make AI
-                <br />
-                useful.
-              </strong>
-              <small>Learn · Apply · Build</small>
-            </div>
+            <ProjectVisual slug={study.slug} />
           )}
         </div>
       </header>

@@ -35,14 +35,7 @@ export function ProjectCard({
               sizes="(max-width: 767px) 100vw, 50vw"
             />
           ) : (
-            <div className="groundwork-visual">
-              <span>Groundwork AI</span>
-              <strong>
-                Practical AI.
-                <br />A place to start.
-              </strong>
-              <small>Learn · Apply · Build</small>
-            </div>
+            <ProjectVisual slug={slug} />
           )}
         </div>
         <div className="project-copy">
@@ -58,5 +51,34 @@ export function ProjectCard({
         </div>
       </Link>
     </article>
+  );
+}
+
+export function ProjectVisual({ slug }: { slug: string }) {
+  if (slug === "before-you-buy") {
+    return (
+      <div className="buy-visual" aria-label="Before You Buy decision preview">
+        <span>Before You Buy</span>
+        <div className="buy-question">
+          <small>Purchase check</small>
+          <strong>Can I comfortably afford this?</strong>
+          <i aria-hidden="true">
+            <b />
+          </i>
+        </div>
+        <small>Private by design · No data stored</small>
+      </div>
+    );
+  }
+
+  return (
+    <div className="groundwork-visual">
+      <span>Groundwork AI</span>
+      <strong>
+        Practical AI.
+        <br />A place to start.
+      </strong>
+      <small>Learn · Apply · Build</small>
+    </div>
   );
 }
