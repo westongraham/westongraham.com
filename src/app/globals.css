@@ -1569,11 +1569,11 @@ em {
   inset: 0;
   display: block;
 }
-.menu-icon-close,
+.menu-icons .menu-icon-close,
 .mobile-navigation[open] .menu-icon-open {
   display: none;
 }
-.mobile-navigation[open] .menu-icon-close {
+.mobile-navigation[open] .menu-icons .menu-icon-close {
   display: block;
 }
 .mobile-navigation nav {
