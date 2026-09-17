@@ -1,38 +1,64 @@
 import type { Metadata } from "next";
-import { ArrowsLeftRight, MagnifyingGlass, UsersThree } from "@phosphor-icons/react/dist/ssr";
-import { Card } from "@heroui/react";
 import { metadataFor, staticSeoRoutes } from "@/data/seo";
-
 export const metadata: Metadata = metadataFor(staticSeoRoutes[1]);
-
-const principles = [
-  { icon: MagnifyingGlass, title: "Ask how it works", body: "I want to understand the process, why it exists, and where people actually run into problems." },
-  { icon: ArrowsLeftRight, title: "Follow the connections", body: "A screen rarely tells the whole story. I also look at the data, APIs, integrations, and edge cases behind it." },
-  { icon: UsersThree, title: "Keep it useful", body: "The software should make sense to the person who has to use it after I am done building it." },
-];
-
 export default function AboutPage() {
   return (
-    <main className="page-shell editorial-page about-page">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="page-shell editorial-page about-page"
+    >
       <header className="page-hero">
         <p className="section-label">About</p>
-        <h1>I like figuring out<br /><em>how things work.</em></h1>
-        <p className="lede">I&apos;m curious about what is happening behind the screen, why something behaves the way it does, and how I can make it work better.</p>
+        <h1>
+          Understand the context.
+          <br />
+          <em>Build with purpose.</em>
+        </h1>
+        <p className="lede">
+          I’m Weston, a software engineer in Arkansas. My path from logistics
+          operations to development taught me to start with the people doing the
+          work.
+        </p>
       </header>
-      <section className="principle-grid" aria-label="Working principles">
-        {principles.map(({ icon: Icon, title, body }) => (
-          <Card variant="secondary" key={title}>
-            <Card.Header><span className="principle-icon"><Icon size={23} /></span><Card.Title>{title}</Card.Title></Card.Header>
-            <Card.Content><p>{body}</p></Card.Content>
-          </Card>
-        ))}
-      </section>
-      <section className="about-story split-copy">
-        <div><p className="section-label">How I think about software</p><h2>Understand it before changing it.</h2></div>
+      <section className="split-copy">
+        <h2>The people behind the software.</h2>
         <div>
-          <p>Most of the software I work on already has a history: business rules, edge cases, older decisions, and people who know what happens when something changes. I try to learn that context before deciding what the code should do.</p>
-          <p>I enjoy working on software people use every day, especially internal applications, APIs, integrations, and automation. I also like the troubleshooting that comes after something ships, because that is usually where I learn how it really works.</p>
-          <p>That curiosity carries outside of work too. I build side projects, experiment with AI, and spend time on woodworking, home projects, and fitness. They are different kinds of problems, but I enjoy the same part of each one: learning, trying something, and improving it a little at a time.</p>
+          <p>
+            Most of the software I work on already has a history: business
+            rules, edge cases, older decisions, and people who know what happens
+            when something changes. I try to learn that context before deciding
+            what the code should do.
+          </p>
+          <p>
+            I enjoy internal applications, APIs, integrations, and automation.
+            Troubleshooting across systems is often where I learn how the
+            software really works.
+          </p>
+        </div>
+      </section>
+      <section className="split-copy">
+        <h2>Better work, together.</h2>
+        <div>
+          <p>
+            I work across teams to understand production problems and help
+            resolve them. My SAFe Scrum Master training also shaped how I
+            approach planning, communication, and keeping work moving.
+          </p>
+          <p>
+            I want to keep growing alongside engineers who care about the
+            details and the people using what they build.
+          </p>
+        </div>
+      </section>
+      <section className="split-copy">
+        <h2>Outside the code.</h2>
+        <div>
+          <p>
+            I build side projects, experiment with AI, and spend time on
+            woodworking, home projects, and fitness. I enjoy learning, trying
+            something, and improving it a little at a time.
+          </p>
         </div>
       </section>
     </main>

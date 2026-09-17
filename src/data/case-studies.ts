@@ -1,4 +1,7 @@
-import { danceStudioArchitecture, type ArchitectureDiagramData } from "@/data/architecture";
+import {
+  danceStudioArchitecture,
+  type ArchitectureDiagramData,
+} from "@/data/architecture";
 
 export type CaseStudyImage = {
   src: string;
@@ -47,8 +50,7 @@ export const caseStudies: CaseStudy[] = [
       "Everyday people who want to use AI in their daily lives",
       "Small businesses exploring AI adoption and automation",
     ],
-    role:
-      "I designed and built the site, organized its guides and examples, and shaped how people can ask for consulting or implementation help.",
+    role: "I designed and built the site, organized its guides and examples, and shaped how people can ask for consulting or implementation help.",
     problem:
       "I kept seeing the same problem: people hear constantly about what AI can do, but a lot of them still do not know what they should actually use it for. Many resources are either too technical or too vague to help someone take a useful first step.",
     responsibilities: [
@@ -63,12 +65,14 @@ export const caseStudies: CaseStudy[] = [
     technologyStack: ["Next.js", "React", "CSS Modules", "Vercel"],
     decisions: [
       {
-        decision: "Organize the site around things people want to do, not AI terminology.",
+        decision:
+          "Organize the site around things people want to do, not AI terminology.",
         rationale:
           "An example is easier to understand when it connects to a problem someone already has at work or in daily life.",
       },
       {
-        decision: "Combine self-guided education with consulting and implementation services.",
+        decision:
+          "Combine self-guided education with consulting and implementation services.",
         rationale:
           "Some people want to learn on their own. Others have a specific problem and want help figuring out or building the right approach.",
       },
@@ -159,3 +163,14 @@ export const caseStudies: CaseStudy[] = [
 export function getCaseStudy(slug: string) {
   return caseStudies.find((study) => study.slug === slug);
 }
+
+const projectOrder = [
+  "dance-studio-costume-manager",
+  "groundwork-ai",
+  "autofarm",
+  "attitudes-performing-arts",
+];
+export const orderedCaseStudies = projectOrder.map((slug) =>
+  caseStudies.find((study) => study.slug === slug)!,
+);
+export const selectedCaseStudies = orderedCaseStudies.slice(0, 3);

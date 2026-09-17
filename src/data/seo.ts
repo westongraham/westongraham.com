@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://westongraham.com";
+export const SITE_URL = "https://www.westongraham.com";
 export const SITE_NAME = "Weston Graham";
 
 type SeoRoute = {
@@ -12,16 +12,54 @@ type SeoRoute = {
 };
 
 export const staticSeoRoutes = [
-  { path: "/", title: "Weston Graham — Full-stack engineer", description: "Weston Graham is a full-stack engineer who builds software, integrations, and internal tools that make work easier.", changeFrequency: "monthly", priority: 1 },
-  { path: "/about", title: "About Weston Graham | Full-stack engineer", description: "Learn what Weston Graham enjoys building and how curiosity shapes his approach to software, APIs, integrations, and troubleshooting.", changeFrequency: "yearly", priority: 0.7 },
-  { path: "/experience", title: "Experience | Weston Graham", description: "Weston Graham’s experience building and supporting applications, APIs, and integrations at ArcBest Technologies.", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/projects", title: "Projects | Weston Graham", description: "Selected software, product design, and research projects by full-stack engineer Weston Graham.", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/writing", title: "Writing | Weston Graham", description: "Notes from Weston Graham on software engineering, systems, AI, career growth, and side projects.", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/writing/when-a-spreadsheet-stops-being-enough", title: "When a spreadsheet stops being enough | Weston Graham", description: "A practical way to recognize when a repeated business process needs a better tool than a spreadsheet.", changeFrequency: "yearly", priority: 0.7 },
-  { path: "/notes", title: "Engineering Notes | Weston Graham", description: "Notes from Weston Graham about projects, software decisions, and lessons worth remembering.", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/tools", title: "Developer Tools | Weston Graham", description: "Small browser-based tools Weston Graham uses for common development tasks.", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/build", title: "Build With Me | Weston Graham", description: "A working notebook where Weston Graham shares project goals, decisions, and next steps.", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/journal", title: "Engineering Journal | Weston Graham", description: "Short notes from Weston Graham about software problems and lessons learned while building.", changeFrequency: "monthly", priority: 0.7 },
+  {
+    path: "/",
+    title: "Weston Graham — Full-stack engineer",
+    description:
+      "Weston Graham is a full-stack engineer who builds software, integrations, and internal tools that make work easier.",
+    changeFrequency: "monthly",
+    priority: 1,
+  },
+  {
+    path: "/about",
+    title: "About Weston Graham | Full-stack engineer",
+    description:
+      "Learn what Weston Graham enjoys building and how curiosity shapes his approach to software, APIs, integrations, and troubleshooting.",
+    changeFrequency: "yearly",
+    priority: 0.7,
+  },
+  {
+    path: "/experience",
+    title: "Experience | Weston Graham",
+    description:
+      "Weston Graham’s experience building and supporting applications, APIs, and integrations at ArcBest Technologies.",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    path: "/projects",
+    title: "Projects | Weston Graham",
+    description:
+      "Selected software, product design, and research projects by full-stack engineer Weston Graham.",
+    changeFrequency: "monthly",
+    priority: 0.9,
+  },
+  {
+    path: "/writing",
+    title: "Writing | Weston Graham",
+    description:
+      "Notes from Weston Graham on software engineering, systems, AI, career growth, and side projects.",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    path: "/writing/when-a-spreadsheet-stops-being-enough",
+    title: "When a spreadsheet stops being enough | Weston Graham",
+    description:
+      "A practical way to recognize when a repeated business process needs a better tool than a spreadsheet.",
+    changeFrequency: "yearly",
+    priority: 0.7,
+  },
 ] as const satisfies readonly SeoRoute[];
 
 export function absoluteUrl(path: string) {
@@ -34,12 +72,26 @@ export function metadataFor(route: SeoRoute): Metadata {
     description: route.description,
     alternates: { canonical: route.path },
     // The generated opengraph-image file convention supplies the closest image.
-    openGraph: { title: route.title, description: route.description, url: route.path, siteName: SITE_NAME, type: "website" },
-    twitter: { card: "summary_large_image", title: route.title, description: route.description },
+    openGraph: {
+      title: route.title,
+      description: route.description,
+      url: route.path,
+      siteName: SITE_NAME,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: route.title,
+      description: route.description,
+    },
   };
 }
 
-export function projectSeoRoute(title: string, summary: string, slug: string): SeoRoute {
+export function projectSeoRoute(
+  title: string,
+  summary: string,
+  slug: string,
+): SeoRoute {
   return {
     path: `/projects/${slug}`,
     title: `${title} | Weston Graham`,
