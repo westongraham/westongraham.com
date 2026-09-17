@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
+import { List, X } from "@phosphor-icons/react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const links = [
@@ -56,10 +57,10 @@ export function SiteHeader() {
               }
             }}
           >
-            <summary aria-label="Open navigation">
-              <span className="hamburger" aria-hidden="true">
-                <i />
-                <i />
+            <summary aria-label="Navigation menu">
+              <span className="menu-icons" aria-hidden="true">
+                <List className="menu-icon-open" size={21} weight="regular" />
+                <X className="menu-icon-close" size={20} weight="regular" />
               </span>
             </summary>
             <nav aria-label="Mobile navigation">

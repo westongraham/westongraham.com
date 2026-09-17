@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { metadataFor, staticSeoRoutes } from "@/data/seo";
 export const metadata: Metadata = metadataFor(staticSeoRoutes[1]);
 export default function AboutPage() {
@@ -8,57 +9,105 @@ export default function AboutPage() {
       tabIndex={-1}
       className="page-shell editorial-page about-page"
     >
-      <header className="page-hero">
-        <p className="section-label">About</p>
-        <h1>
-          Understand the context.
-          <br />
-          <em>Build with purpose.</em>
-        </h1>
-        <p className="lede">
-          I’m Weston, a software engineer in Arkansas. My path from logistics
-          operations to development taught me to start with the people doing the
-          work.
-        </p>
+      <header className="about-hero">
+        <div>
+          <p className="section-label">About me</p>
+          <h1>
+            I’m Weston. I like understanding how things work—and making them
+            better.
+          </h1>
+          <p className="lede">
+            I’m an Arkansas-based software engineer, husband, dog dad, and
+            lifelong builder. Curiosity pulls me into a problem; discipline
+            helps me finish it well.
+          </p>
+        </div>
+        <aside
+          className="about-identity"
+          aria-label="A quick introduction to Weston"
+        >
+          <span className="about-monogram">WG</span>
+          <div>
+            <strong>Based in Arkansas</strong>
+            <span>Building at ArcBest Technologies</span>
+          </div>
+          <ul>
+            <li>Software</li>
+            <li>Practical AI</li>
+            <li>Fitness</li>
+            <li>OKC Thunder</li>
+          </ul>
+        </aside>
       </header>
-      <section className="split-copy">
-        <h2>The people behind the software.</h2>
+      <section className="about-story">
+        <p className="section-label">My path</p>
+        <h2>I started close to the work.</h2>
         <div>
           <p>
-            Most of the software I work on already has a history: business
-            rules, edge cases, older decisions, and people who know what happens
-            when something changes. I try to learn that context before deciding
-            what the code should do.
+            I began in logistics operations before moving into technology and
+            software engineering. That path taught me that the best solutions
+            come from understanding the people, process, and edge cases behind
+            the request—not just the ticket.
           </p>
           <p>
-            I enjoy internal applications, APIs, integrations, and automation.
-            Troubleshooting across systems is often where I learn how the
-            software really works.
+            Today I build and support applications, APIs, integrations, and AI
+            automation used by sales and customer-service teams. I’m still at my
+            best when I can trace a messy problem across systems and turn it
+            into something useful.
           </p>
         </div>
       </section>
-      <section className="split-copy">
-        <h2>Better work, together.</h2>
-        <div>
-          <p>
-            I work across teams to understand production problems and help
-            resolve them. My SAFe Scrum Master training also shaped how I
-            approach planning, communication, and keeping work moving.
-          </p>
-          <p>
-            I want to keep growing alongside engineers who care about the
-            details and the people using what they build.
-          </p>
+      <section className="about-principles" aria-labelledby="principles-title">
+        <p className="section-label">How I work</p>
+        <h2 id="principles-title">Four ideas I keep coming back to.</h2>
+        <div className="principle-grid">
+          <article>
+            <span>01</span>
+            <h3>Understand first.</h3>
+            <p>Learn the context before choosing the solution.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Make it useful.</h3>
+            <p>Good software should make someone’s work clearer or easier.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Stay curious.</h3>
+            <p>
+              Ask better questions and follow the problem across boundaries.
+            </p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Keep improving.</h3>
+            <p>
+              Ship thoughtfully, learn from reality, and refine the details.
+            </p>
+          </article>
         </div>
       </section>
-      <section className="split-copy">
-        <h2>Outside the code.</h2>
+      <section className="about-life">
         <div>
+          <p className="section-label">Away from the screen</p>
+          <h2>Still building, just differently.</h2>
           <p>
-            I build side projects, experiment with AI, and spend time on
-            woodworking, home projects, and fitness. I enjoy learning, trying
-            something, and improving it a little at a time.
+            Life outside work is time with my wife and our miniature poodle,
+            Zoe, early workouts, OKC Thunder basketball, home projects, and
+            experimenting with whatever technology has caught my attention.
           </p>
+        </div>
+        <div>
+          <p className="section-label">What’s next</p>
+          <h2>Growing around good engineers.</h2>
+          <p>
+            I want to keep becoming a stronger full-stack engineer on a team
+            where people share ideas, challenge one another, and care about the
+            craft and the customer.
+          </p>
+          <Link className="text-link" href="/projects">
+            See what I’m building <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
     </main>

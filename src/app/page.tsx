@@ -110,38 +110,43 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section
-        className="home-experience page-shell"
-        aria-labelledby="experience-title"
-      >
-        <div className="home-experience-logo">
-          <Image
-            src="/images/arcbest-logo.png"
-            alt="ArcBest logo"
-            width={112}
-            height={112}
-          />
+      <section className="home-experience-section page-shell">
+        <div className="section-heading">
+          <div>
+            <p className="section-label">Experience</p>
+            <h2 id="experience-title">What I’m building now.</h2>
+          </div>
         </div>
-        <div className="home-experience-copy">
-          <p className="section-label">Currently · October 2025–present</p>
-          <h2 id="experience-title">Product Support Specialist II</h2>
-          <p className="experience-focus">
-            Software Engineering Focus · ArcBest Technologies
-          </p>
-          <p>
-            I build and support production applications, APIs, and integrations
-            for the technology behind sales and customer service.
-          </p>
-          <ul className="case-tags" aria-label="Representative technologies">
-            <li>.NET</li>
-            <li>Vue</li>
-            <li>SQL</li>
-            <li>Salesforce</li>
-            <li>ServiceNow</li>
-          </ul>
-          <Link className="text-link" href="/experience">
-            Follow my path into software <span aria-hidden="true">→</span>
-          </Link>
+        <div className="home-experience" aria-labelledby="experience-title">
+          <div className="home-experience-logo">
+            <Image
+              src="/images/arcbest-logo.png"
+              alt="ArcBest logo"
+              width={112}
+              height={112}
+            />
+          </div>
+          <div className="home-experience-copy">
+            <p className="section-label">Currently · October 2025–present</p>
+            <h3>Product Support Specialist II</h3>
+            <p className="experience-focus">
+              Software Engineering Focus · ArcBest Technologies
+            </p>
+            <p>
+              I build and support production applications, APIs, and
+              integrations for the technology behind sales and customer service.
+            </p>
+            <ul className="case-tags" aria-label="Representative technologies">
+              <li>.NET</li>
+              <li>Vue</li>
+              <li>SQL</li>
+              <li>Salesforce</li>
+              <li>ServiceNow</li>
+            </ul>
+            <Link className="text-link" href="/experience">
+              Explore my experience <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
       <section
