@@ -8,11 +8,14 @@ export function SiteFooter() {
           Weston Graham
         </Link>
         <p>Software engineer · Arkansas</p>
+        <p className="footer-statement">
+          Curious about how things work. Disciplined about making them better.
+        </p>
         <CopyEmail />
       </div>
       <nav className="footer-links" aria-label="Footer navigation">
         <Link href="/projects">Work</Link>
-        <Link href="/writing">Writing</Link>
+        <Link href="/experience">Experience</Link>
         <a
           href="https://www.linkedin.com/in/westongraham"
           target="_blank"

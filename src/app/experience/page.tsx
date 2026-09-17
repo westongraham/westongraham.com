@@ -18,9 +18,9 @@ export default function ExperiencePage() {
       <header className="page-hero">
         <p className="section-label">Experience</p>
         <h1>
-          How I got into
+          I learned the work.
           <br />
-          <em>building software.</em>
+          <em>Then I learned to build for it.</em>
         </h1>
         <p className="lede">
           I started on the operations side of logistics, moved into supporting

@@ -21,7 +21,9 @@ export function ProjectCard({
 }: Props) {
   const Heading = headingLevel === 2 ? "h2" : "h3";
   return (
-    <article className={`project-card project-card-${index + 1}`}>
+    <article
+      className={`project-card project-card-${index + 1} project-${slug}`}
+    >
       <Link href={`/projects/${slug}`}>
         <div className="project-media">
           {heroImage ? (
@@ -44,11 +46,14 @@ export function ProjectCard({
           )}
         </div>
         <div className="project-copy">
-          <p className="section-label">{eyebrow}</p>
+          <div className="project-card-meta">
+            <p className="section-label">{eyebrow}</p>
+            <span>0{index + 1}</span>
+          </div>
           <Heading>{title}</Heading>
           <p>{description}</p>
           <span className="text-link">
-            Read case study <span aria-hidden="true">↗</span>
+            Explore the story <span aria-hidden="true">↗</span>
           </span>
         </div>
       </Link>

@@ -7,15 +7,16 @@ export default function ProjectsPage() {
   return (
     <main id="main-content" tabIndex={-1} className="page-shell editorial-page">
       <header className="page-hero">
-        <p className="section-label">Selected work</p>
+        <p className="section-label">The work</p>
         <h1>
-          Problems, decisions,
+          Every build starts
           <br />
-          <em>and what I built.</em>
+          <em>with a problem worth solving.</em>
         </h1>
         <p className="lede">
-          Business applications, practical AI, and team research. Each case
-          study explains the problem and the choices behind the work.
+          Products, practical AI, research, and design. These are the stories
+          behind what I made, the decisions I took, and what each build taught
+          me.
         </p>
       </header>
       <div className="project-grid">

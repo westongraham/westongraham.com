@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { ProjectTemplate } from "@/components/project-template";
@@ -50,7 +51,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <main
       id="main-content"
       tabIndex={-1}
-      className="page-shell editorial-page case-study"
+      className={`page-shell editorial-page case-study case-${study.slug}`}
     >
       <JsonLd
         data={{
@@ -70,22 +71,48 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <Link className="back-link" href="/projects">
         ← All projects
       </Link>
-      <p className="section-label">{study.eyebrow}</p>
-      <h1>{study.title}</h1>
-      <p className="lede">{study.summary}</p>
-      {study.demo?.url && (
-        <div className="case-actions">
-          <a
-            className="primary-action"
-            href={study.demo.url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {study.demo.label ?? "View live site"}{" "}
-            <span aria-hidden="true">↗</span>
-          </a>
+      <header className="case-intro">
+        <div className="case-intro-copy">
+          <p className="section-label">{study.eyebrow}</p>
+          <h1>{study.title}</h1>
+          <p className="lede">{study.summary}</p>
+          {study.demo?.url && (
+            <div className="case-actions">
+              <a
+                className="primary-action"
+                href={study.demo.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {study.demo.label ?? "View live site"}{" "}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          )}
         </div>
-      )}
+        <div className="case-intro-visual">
+          {study.heroImage ? (
+            <Image
+              src={study.heroImage.src}
+              alt={study.heroImage.alt}
+              width={1400}
+              height={900}
+              priority
+              sizes="(max-width: 800px) 100vw, 55vw"
+            />
+          ) : (
+            <div className="groundwork-visual">
+              <span>Groundwork AI</span>
+              <strong>
+                Make AI
+                <br />
+                useful.
+              </strong>
+              <small>Learn · Apply · Build</small>
+            </div>
+          )}
+        </div>
+      </header>
       <ProjectTemplate study={study} />
       <nav className="next-project" aria-label="Next project">
         <h2 className="section-label">Next project</h2>
