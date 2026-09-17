@@ -1535,26 +1535,39 @@ em {
   border: 0;
 }
 .mobile-navigation summary {
+  position: relative;
   display: grid;
   place-items: center;
   width: 44px;
   height: 44px;
   min-height: 0;
+  margin: 0;
+  padding: 0;
   border: 1px solid var(--line);
   border-radius: 50%;
   list-style: none;
+  line-height: 0;
+  text-indent: 0;
+  appearance: none;
+  -webkit-appearance: none;
 }
 .mobile-navigation summary::-webkit-details-marker {
   display: none;
 }
 .menu-icons {
-  display: grid;
-  place-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
   width: 21px;
   height: 21px;
+  margin: 0;
+  transform: translate(-50%, -50%);
 }
 .menu-icons svg {
-  grid-area: 1 / 1;
+  position: absolute;
+  inset: 0;
+  display: block;
 }
 .menu-icon-close,
 .mobile-navigation[open] .menu-icon-open {
