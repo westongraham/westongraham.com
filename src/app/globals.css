@@ -471,20 +471,25 @@ em {
   line-height: 1.12;
   letter-spacing: -0.04em;
 }
-.buy-question i {
-  display: block;
-  height: 7px;
+.buy-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
   margin-top: 8px;
-  border-radius: 999px;
-  background: var(--line);
-  overflow: hidden;
 }
-.buy-question i b {
-  display: block;
-  width: 72%;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--project-accent, var(--case-accent));
+.buy-metrics span {
+  display: grid;
+  gap: 2px;
+  padding-top: 9px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.57rem;
+  line-height: 1.25;
+}
+.buy-metrics b {
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-style: normal;
 }
 .home-experience {
   display: grid;

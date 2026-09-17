@@ -60,13 +60,21 @@ export function ProjectVisual({ slug }: { slug: string }) {
       <div className="buy-visual" aria-label="Before You Buy decision preview">
         <span>Before You Buy</span>
         <div className="buy-question">
-          <small>Purchase check</small>
-          <strong>Can I comfortably afford this?</strong>
-          <i aria-hidden="true">
-            <b />
-          </i>
+          <small>Live result</small>
+          <strong>Comfortably affordable</strong>
+          <div className="buy-metrics" aria-hidden="true">
+            <span>
+              <b>6.3</b> months runway
+            </span>
+            <span>
+              <b>6%</b> cash used
+            </span>
+            <span>
+              <b>31.2</b> work hours
+            </span>
+          </div>
         </div>
-        <small>Private by design · No data stored</small>
+        <small>Your numbers stay in this session · Nothing saved</small>
       </div>
     );
   }

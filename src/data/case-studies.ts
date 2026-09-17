@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Before You Buy",
     eyebrow: "Personal finance · AI-assisted utility",
     summary:
-      "A private, lightweight decision tool for answering two questions: can I comfortably afford this, and is it worth the money and time?",
+      "A privacy-first cash-purchase tool that tests affordability against an emergency reserve, then translates price into time, ownership, and use.",
     cardDescription:
       "A private purchase check for affordability, value, and peace of mind.",
     users: [
@@ -54,9 +54,10 @@ export const caseStudies: CaseStudy[] = [
     problem:
       "I care about living within my means and avoiding consumer debt, but I can still overthink larger purchases. A bank balance alone does not answer whether a purchase is comfortable, responsible, and genuinely worth the time it took to earn the money.",
     responsibilities: [
-      "Translated my own purchase-decision process into a short, guided set of questions.",
+      "Translated my own purchase-decision process into a short flow built around price, liquid cash, essential expenses, and a chosen three- or six-month safety floor.",
       "Prompted and iterated on the experience using ChatGPT Sites instead of starting a traditional software project.",
-      "Kept the tool focused on a clear recommendation rather than adding accounts, dashboards, or unnecessary features.",
+      "Added optional perspective for income, expected ownership, and use frequency without making the core affordability check feel like a long questionnaire.",
+      "Turned the inputs into a clear verdict supported by cash remaining, emergency runway, safety-floor margin, liquid-cash usage, gross work hours, and ownership cost.",
       "Made privacy part of the product: users can enter personal financial details without that data being collected or stored.",
     ],
     constraints: [
@@ -83,11 +84,12 @@ export const caseStudies: CaseStudy[] = [
       {
         decision: "Consider value as well as affordability.",
         rationale:
-          "Being able to pay for something does not automatically make it a good use of money or of the time required to earn it.",
+          "Being able to pay cash does not automatically make something a good purchase. Work hours, share of income, expected ownership, and frequency of use provide a more honest perspective.",
       },
     ],
     testing: [
-      "Walked through different purchase scenarios to make sure the questions lead to a useful decision.",
+      "Walked through different purchase, cash, expense, and safety-floor combinations to verify that the verdict and supporting calculations respond clearly.",
+      "Checked optional salary, work-hour, ownership, and usage inputs to make sure they add context without blocking the core result.",
       "Reviewed the experience as a quick mobile utility rather than a long financial questionnaire.",
     ],
     security: [
@@ -97,7 +99,7 @@ export const caseStudies: CaseStudy[] = [
     deployment:
       "Built and published with ChatGPT Sites as a fast path from a personal problem to a usable public tool.",
     results:
-      "Before You Buy turns a familiar moment of uncertainty into a short, structured decision. It also demonstrates that good problem solving sometimes means choosing a fast, lightweight tool instead of fully engineering a product.",
+      "Before You Buy turns a familiar moment of uncertainty into a live verdict—such as comfortably affordable—then shows the numbers behind it: remaining cash, months of emergency runway, reserve margin, cash used, gross work required, and cost over time. It also demonstrates that good problem solving sometimes means choosing a fast, lightweight tool instead of fully engineering a product.",
     lessonsLearned:
       "Not every useful idea needs a full application. New AI tools can make small, specific solutions worth building—as long as the scope, privacy, and purpose remain intentional.",
     demo: {
