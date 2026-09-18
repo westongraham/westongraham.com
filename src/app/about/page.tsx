@@ -13,7 +13,7 @@ export default function AboutPage() {
         <div>
           <p className="section-label">About me</p>
           <h1>
-            I’m Weston. I like understanding how things work—and making them
+            I’m Weston. I like understanding how things work and making them
             better.
           </h1>
           <p className="lede">
@@ -47,7 +47,7 @@ export default function AboutPage() {
             I began in logistics operations before moving into technology and
             software engineering. That path taught me that the best solutions
             come from understanding the people, process, and edge cases behind
-            the request—not just the ticket.
+            the request, not just the ticket.
           </p>
           <p>
             Today I build and support applications, APIs, integrations, and AI

@@ -99,9 +99,9 @@ export const caseStudies: CaseStudy[] = [
     deployment:
       "Built and published with ChatGPT Sites as a fast path from a personal problem to a usable public tool.",
     results:
-      "Before You Buy turns a familiar moment of uncertainty into a live verdict—such as comfortably affordable—then shows the numbers behind it: remaining cash, months of emergency runway, reserve margin, cash used, gross work required, and cost over time. It also demonstrates that good problem solving sometimes means choosing a fast, lightweight tool instead of fully engineering a product.",
+      "Before You Buy turns a familiar moment of uncertainty into a live verdict, such as comfortably affordable, then shows the numbers behind it: remaining cash, months of emergency runway, reserve margin, cash used, gross work required, and cost over time. It also demonstrates that good problem solving sometimes means choosing a fast, lightweight tool instead of fully engineering a product.",
     lessonsLearned:
-      "Not every useful idea needs a full application. New AI tools can make small, specific solutions worth building—as long as the scope, privacy, and purpose remain intentional.",
+      "Not every useful idea needs a full application. New AI tools can make small, specific solutions worth building when the scope, privacy, and purpose remain intentional.",
     demo: {
       url: "https://before-you-buy.weston-graham.chatgpt.site",
       label: "Try Before You Buy",

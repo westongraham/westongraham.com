@@ -14,7 +14,7 @@ type SeoRoute = {
 export const staticSeoRoutes = [
   {
     path: "/",
-    title: "Weston Graham — Full-stack engineer",
+    title: "Weston Graham | Full-stack engineer",
     description:
       "Weston Graham is a full-stack engineer who builds software, integrations, and internal tools that make work easier.",
     changeFrequency: "monthly",

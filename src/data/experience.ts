@@ -17,7 +17,7 @@ export type CareerMilestone = {
 export const careerMilestones: CareerMilestone[] = [
   {
     id: "pss-ii",
-    dates: "Oct 2025 — present",
+    dates: "Oct 2025 to present",
     title: "Product Support Specialist II",
     company: "ArcBest Technologies",
     companyLogo: { src: "/images/arcbest-logo.png", alt: "ArcBest logo" },
@@ -35,7 +35,7 @@ export const careerMilestones: CareerMilestone[] = [
   },
   {
     id: "pss-i",
-    dates: "May 2023 — Oct 2025",
+    dates: "May 2023 to Oct 2025",
     title: "Product Support Specialist I",
     company: "ArcBest Technologies",
     companyLogo: { src: "/images/arcbest-logo.png", alt: "ArcBest logo" },
@@ -49,7 +49,7 @@ export const careerMilestones: CareerMilestone[] = [
   },
   {
     id: "info-center",
-    dates: "Jan 2022 — May 2023",
+    dates: "Jan 2022 to May 2023",
     title: "Info Center Student Worker",
     company: "ArcBest Technologies",
     companyLogo: { src: "/images/arcbest-logo.png", alt: "ArcBest logo" },
@@ -63,7 +63,7 @@ export const careerMilestones: CareerMilestone[] = [
   },
   {
     id: "carrier-sales",
-    dates: "Jan 2021 — Jan 2022",
+    dates: "Jan 2021 to Jan 2022",
     title: "Carrier Sales Support Specialist",
     company: "ArcBest",
     companyLogo: { src: "/images/arcbest-logo.png", alt: "ArcBest logo" },

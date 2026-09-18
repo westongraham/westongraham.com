@@ -37,7 +37,7 @@ export default function Home() {
           </h1>
           <p className="hero-lede">
             I build applications, integrations, and practical AI tools around
-            real problems—usually after learning how the work happens first.
+            real problems, usually after learning how the work happens first.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="#work">
@@ -162,7 +162,7 @@ export default function Home() {
           </h2>
           <div>
             <p>
-              I started close to the work—in logistics operations—before moving
+              I started close to the work in logistics operations before moving
               toward the systems behind it. That perspective still shapes every
               application, integration, and side project I build.
             </p>
