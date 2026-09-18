@@ -1,4 +1,7 @@
-import { danceStudioArchitecture, type ArchitectureDiagramData } from "@/data/architecture";
+import {
+  danceStudioArchitecture,
+  type ArchitectureDiagramData,
+} from "@/data/architecture";
 
 export type CaseStudyImage = {
   src: string;
@@ -36,6 +39,75 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "before-you-buy",
+    title: "Before You Buy",
+    eyebrow: "Personal finance · AI-assisted utility",
+    summary:
+      "A privacy-first cash-purchase tool that tests affordability against an emergency reserve, then translates price into time, ownership, and use.",
+    cardDescription:
+      "A private purchase check for affordability, value, and peace of mind.",
+    users: [
+      "Thoughtful buyers who want a clearer affordability check",
+      "People who tend to overthink larger purchases",
+    ],
+    role: "I defined the problem, shaped the decision flow, and used ChatGPT’s Sites feature to turn the idea into a working utility quickly.",
+    problem:
+      "I care about living within my means and avoiding consumer debt, but I can still overthink larger purchases. A bank balance alone does not answer whether a purchase is comfortable, responsible, and genuinely worth the time it took to earn the money.",
+    responsibilities: [
+      "Translated my own purchase-decision process into a short flow built around price, liquid cash, essential expenses, and a chosen three- or six-month safety floor.",
+      "Prompted and iterated on the experience using ChatGPT Sites instead of starting a traditional software project.",
+      "Added optional perspective for income, expected ownership, and use frequency without making the core affordability check feel like a long questionnaire.",
+      "Turned the inputs into a clear verdict supported by cash remaining, emergency runway, safety-floor margin, liquid-cash usage, gross work hours, and ownership cost.",
+      "Made privacy part of the product: users can enter personal financial details without that data being collected or stored.",
+    ],
+    constraints: [
+      "No accounts, saved history, or personal-finance database.",
+      "The experience needed to be useful in a few minutes, not become another system to maintain.",
+      "The recommendation should support a decision without pretending to replace personal judgment.",
+    ],
+    technologyStack: [
+      "ChatGPT Sites",
+      "AI-assisted prototyping",
+      "Web utility",
+    ],
+    decisions: [
+      {
+        decision: "Build the smallest useful tool.",
+        rationale:
+          "This problem did not need a custom backend or weeks of engineering. A focused utility could provide the value faster and with less friction.",
+      },
+      {
+        decision: "Collect no personal financial data.",
+        rationale:
+          "People should be able to answer sensitive affordability questions without wondering where their income, savings, or purchase details are being stored.",
+      },
+      {
+        decision: "Consider value as well as affordability.",
+        rationale:
+          "Being able to pay cash does not automatically make something a good purchase. Work hours, share of income, expected ownership, and frequency of use provide a more honest perspective.",
+      },
+    ],
+    testing: [
+      "Walked through different purchase, cash, expense, and safety-floor combinations to verify that the verdict and supporting calculations respond clearly.",
+      "Checked optional salary, work-hour, ownership, and usage inputs to make sure they add context without blocking the core result.",
+      "Reviewed the experience as a quick mobile utility rather than a long financial questionnaire.",
+    ],
+    security: [
+      "The tool was intentionally prompted and designed not to collect or store the financial information users enter.",
+      "No account is required to use it.",
+    ],
+    deployment:
+      "Built and published with ChatGPT Sites as a fast path from a personal problem to a usable public tool.",
+    results:
+      "Before You Buy turns a familiar moment of uncertainty into a live verdict, such as comfortably affordable, then shows the numbers behind it: remaining cash, months of emergency runway, reserve margin, cash used, gross work required, and cost over time. It also demonstrates that good problem solving sometimes means choosing a fast, lightweight tool instead of fully engineering a product.",
+    lessonsLearned:
+      "Not every useful idea needs a full application. New AI tools can make small, specific solutions worth building when the scope, privacy, and purpose remain intentional.",
+    demo: {
+      url: "https://before-you-buy.weston-graham.chatgpt.site",
+      label: "Try Before You Buy",
+    },
+  },
+  {
     slug: "groundwork-ai",
     title: "Groundwork AI",
     eyebrow: "AI education · Consulting · Implementation",
@@ -47,8 +119,7 @@ export const caseStudies: CaseStudy[] = [
       "Everyday people who want to use AI in their daily lives",
       "Small businesses exploring AI adoption and automation",
     ],
-    role:
-      "I designed and built the site, organized its guides and examples, and shaped how people can ask for consulting or implementation help.",
+    role: "I designed and built the site, organized its guides and examples, and shaped how people can ask for consulting or implementation help.",
     problem:
       "I kept seeing the same problem: people hear constantly about what AI can do, but a lot of them still do not know what they should actually use it for. Many resources are either too technical or too vague to help someone take a useful first step.",
     responsibilities: [
@@ -63,12 +134,14 @@ export const caseStudies: CaseStudy[] = [
     technologyStack: ["Next.js", "React", "CSS Modules", "Vercel"],
     decisions: [
       {
-        decision: "Organize the site around things people want to do, not AI terminology.",
+        decision:
+          "Organize the site around things people want to do, not AI terminology.",
         rationale:
           "An example is easier to understand when it connects to a problem someone already has at work or in daily life.",
       },
       {
-        decision: "Combine self-guided education with consulting and implementation services.",
+        decision:
+          "Combine self-guided education with consulting and implementation services.",
         rationale:
           "Some people want to learn on their own. Others have a specific problem and want help figuring out or building the right approach.",
       },
@@ -159,3 +232,22 @@ export const caseStudies: CaseStudy[] = [
 export function getCaseStudy(slug: string) {
   return caseStudies.find((study) => study.slug === slug);
 }
+
+const projectOrder = [
+  "before-you-buy",
+  "dance-studio-costume-manager",
+  "groundwork-ai",
+  "autofarm",
+  "attitudes-performing-arts",
+];
+export const orderedCaseStudies = projectOrder.map((slug) =>
+  caseStudies.find((study) => study.slug === slug)!,
+);
+const selectedProjectOrder = [
+  "dance-studio-costume-manager",
+  "groundwork-ai",
+  "autofarm",
+];
+export const selectedCaseStudies = selectedProjectOrder.map((slug) =>
+  caseStudies.find((study) => study.slug === slug)!,
+);

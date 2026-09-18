@@ -1,38 +1,113 @@
 import type { Metadata } from "next";
-import { ArrowsLeftRight, MagnifyingGlass, UsersThree } from "@phosphor-icons/react/dist/ssr";
-import { Card } from "@heroui/react";
+import Link from "next/link";
 import { metadataFor, staticSeoRoutes } from "@/data/seo";
-
 export const metadata: Metadata = metadataFor(staticSeoRoutes[1]);
-
-const principles = [
-  { icon: MagnifyingGlass, title: "Ask how it works", body: "I want to understand the process, why it exists, and where people actually run into problems." },
-  { icon: ArrowsLeftRight, title: "Follow the connections", body: "A screen rarely tells the whole story. I also look at the data, APIs, integrations, and edge cases behind it." },
-  { icon: UsersThree, title: "Keep it useful", body: "The software should make sense to the person who has to use it after I am done building it." },
-];
-
 export default function AboutPage() {
   return (
-    <main className="page-shell editorial-page about-page">
-      <header className="page-hero">
-        <p className="section-label">About</p>
-        <h1>I like figuring out<br /><em>how things work.</em></h1>
-        <p className="lede">I&apos;m curious about what is happening behind the screen, why something behaves the way it does, and how I can make it work better.</p>
-      </header>
-      <section className="principle-grid" aria-label="Working principles">
-        {principles.map(({ icon: Icon, title, body }) => (
-          <Card variant="secondary" key={title}>
-            <Card.Header><span className="principle-icon"><Icon size={23} /></span><Card.Title>{title}</Card.Title></Card.Header>
-            <Card.Content><p>{body}</p></Card.Content>
-          </Card>
-        ))}
-      </section>
-      <section className="about-story split-copy">
-        <div><p className="section-label">How I think about software</p><h2>Understand it before changing it.</h2></div>
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="page-shell editorial-page about-page"
+    >
+      <header className="about-hero">
         <div>
-          <p>Most of the software I work on already has a history: business rules, edge cases, older decisions, and people who know what happens when something changes. I try to learn that context before deciding what the code should do.</p>
-          <p>I enjoy working on software people use every day, especially internal applications, APIs, integrations, and automation. I also like the troubleshooting that comes after something ships, because that is usually where I learn how it really works.</p>
-          <p>That curiosity carries outside of work too. I build side projects, experiment with AI, and spend time on woodworking, home projects, and fitness. They are different kinds of problems, but I enjoy the same part of each one: learning, trying something, and improving it a little at a time.</p>
+          <p className="section-label">About me</p>
+          <h1>
+            I’m Weston. I like understanding how things work and making them
+            better.
+          </h1>
+          <p className="lede">
+            I’m an Arkansas-based software engineer, husband, dog dad, and
+            lifelong builder. Curiosity pulls me into a problem; discipline
+            helps me finish it well.
+          </p>
+        </div>
+        <aside
+          className="about-identity"
+          aria-label="A quick introduction to Weston"
+        >
+          <span className="about-monogram">WG</span>
+          <div>
+            <strong>Based in Arkansas</strong>
+            <span>Building at ArcBest Technologies</span>
+          </div>
+          <ul>
+            <li>Software</li>
+            <li>Practical AI</li>
+            <li>Fitness</li>
+            <li>OKC Thunder</li>
+          </ul>
+        </aside>
+      </header>
+      <section className="about-story">
+        <p className="section-label">My path</p>
+        <h2>I started close to the work.</h2>
+        <div>
+          <p>
+            I began in logistics operations before moving into technology and
+            software engineering. That path taught me that the best solutions
+            come from understanding the people, process, and edge cases behind
+            the request, not just the ticket.
+          </p>
+          <p>
+            Today I build and support applications, APIs, integrations, and AI
+            automation used by sales and customer-service teams. I’m still at my
+            best when I can trace a messy problem across systems and turn it
+            into something useful.
+          </p>
+        </div>
+      </section>
+      <section className="about-principles" aria-labelledby="principles-title">
+        <p className="section-label">How I work</p>
+        <h2 id="principles-title">Four ideas I keep coming back to.</h2>
+        <div className="principle-grid">
+          <article>
+            <span>01</span>
+            <h3>Understand first.</h3>
+            <p>Learn the context before choosing the solution.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Make it useful.</h3>
+            <p>Good software should make someone’s work clearer or easier.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Stay curious.</h3>
+            <p>
+              Ask better questions and follow the problem across boundaries.
+            </p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Keep improving.</h3>
+            <p>
+              Ship thoughtfully, learn from reality, and refine the details.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section className="about-life">
+        <div>
+          <p className="section-label">Away from the screen</p>
+          <h2>Still building, just differently.</h2>
+          <p>
+            Life outside work is time with my wife and our miniature poodle,
+            Zoe, early workouts, OKC Thunder basketball, home projects, and
+            experimenting with whatever technology has caught my attention.
+          </p>
+        </div>
+        <div>
+          <p className="section-label">What’s next</p>
+          <h2>Growing around good engineers.</h2>
+          <p>
+            I want to keep becoming a stronger full-stack engineer on a team
+            where people share ideas, challenge one another, and care about the
+            craft and the customer.
+          </p>
+          <Link className="text-link" href="/projects">
+            See what I’m building <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
     </main>
