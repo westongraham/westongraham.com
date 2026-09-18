@@ -128,9 +128,9 @@ export default function Home() {
           </div>
           <div className="home-experience-copy">
             <p className="section-label">Currently · October 2025–present</p>
-            <h3>Product Support Specialist II</h3>
+            <h3>Product Support Specialist II (Software Engineering Focus)</h3>
             <p className="experience-focus">
-              Software Engineering Focus · ArcBest Technologies
+              Software Engineering · ArcBest Technologies
             </p>
             <p>
               I build and support production applications, APIs, and

@@ -23,10 +23,8 @@ export default function ExperiencePage() {
           <em>Then I learned to build for it.</em>
         </h1>
         <p className="lede">
-          I started on the operations side of logistics, moved into supporting
-          internal tools, and eventually began building them. That background
-          still helps me understand the people using the software and the
-          reasons behind the work.
+          started on the operations side of logistics, then moved into building the software. 
+          That background still helps me understand the people using it and the problems we’re trying to solve.
         </p>
       </header>
       <ExperienceTimeline />

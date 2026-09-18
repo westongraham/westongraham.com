@@ -18,11 +18,11 @@ export const careerMilestones: CareerMilestone[] = [
   {
     id: "pss-ii",
     dates: "Oct 2025 to present",
-    title: "Product Support Specialist II",
+    title: "Product Support Specialist II (Software Engineering Focus)",
     company: "ArcBest Technologies",
     companyLogo: { src: "/images/arcbest-logo.png", alt: "ArcBest logo" },
     summary:
-      "Software engineering focus · Building and supporting technology for sales and customer service.",
+      "Software engineering · Building and supporting technology for sales and customer service.",
     responsibilities: [
       "Build and maintain production applications used across the company.",
       "Develop APIs and integrations between internal and external systems.",
